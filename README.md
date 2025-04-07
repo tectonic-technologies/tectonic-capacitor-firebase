@@ -1,86 +1,437 @@
-<br />
-<div align="center">
-  <h1>
-    <img src="https://user-images.githubusercontent.com/13857929/161965231-b2c7f586-2ee8-4342-a71a-0532bb8b4c1f.png" alt="Capacitor Firebase" width="720" />
-  </h1>
-</div>
-<br />
-<p align="center">
-  <a href="https://github.com/capawesome-team/capacitor-firebase"><img src="https://img.shields.io/maintenance/yes/2025?style=flat-square" /></a>
-  <a href="https://github.com/capawesome-team/capacitor-firebase/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/capawesome-team/capacitor-firebase/ci.yml?branch=main&style=flat-square" /></a>
-  <a href="https://github.com/capawesome-team/capacitor-firebase"><img src="https://img.shields.io/github/license/capawesome-team/capacitor-firebase?style=flat-square" /></a>
-  <a href="https://github.com/capawesome-team"><img src="https://img.shields.io/badge/part%20of-capawesome-%234f46e5?style=flat-square" /></a>
-  <a href="https://turborepo.org/"><img src="https://img.shields.io/badge/maintained%20with-turborepo-%237f6ab2?style=flat-square" /></a>
-  <a href="https://devlibrary.withgoogle.com/products/firebase/repos/robingenz-capacitor-firebase"><img src="https://img.shields.io/badge/part%20of-DevLibrary-9cf?color=4285F4&logoColor=4285F4&logo=google&style=flat-square" /></a>
-</p>
+# @capacitor-firebase/storage
 
-## Features
-
-Capacitor Firebase is a collection of Capacitor plugins that make it easier for you to use [Firebase](https://firebase.google.com/) in your Capacitor project.[^1]
-
-- 🔋 Supports **Android, iOS and the Web**
-- ⚡️ **Capacitor 7** support
-- 🔥 **Firebase Web SDK** (modular) support
-- 🦋 Consistent versioning (no more SDK versions conflicts)
-- 👁 Unified Typescript definitions
-- 📄 Full documentation
-- ⚙️ Under active development, more plugins coming soon
-
-## Maintainers
-
-| Maintainer | GitHub                                    | Social                                        |
-| ---------- | ----------------------------------------- | --------------------------------------------- |
-| Robin Genz | [robingenz](https://github.com/robingenz) | [@robin_genz](https://twitter.com/robin_genz) |
-
-## Sponsors
-
-This is an Apache-2.0-licensed open source project.
-It can grow thanks to the support by these awesome people.
-If you'd like to join them, please read more [here](https://github.com/sponsors/capawesome-team).
-
-<p align="center">
-  <a href="https://cdn.jsdelivr.net/gh/capawesome-team/static/images/sponsors/sponsors.svg">
-    <img src="https://cdn.jsdelivr.net/gh/capawesome-team/static/images/sponsors/sponsors.svg" />
-  </a>
-</p>
+Unofficial Capacitor plugin for [Firebase Cloud Storage](https://firebase.google.com/docs/storage/).[^1]
 
 ## Installation
 
-Each plugin has its own installation instructions.
-Click on the name of the desired plugin under the [`Plugins`](#plugins) section to get to the installation guide.
+```bash
+npm install @capacitor-firebase/storage
+npx cap sync
+```
 
-## Plugins
+Add Firebase to your project if you haven't already ([Android](https://firebase.google.com/docs/android/setup) / [iOS](https://firebase.google.com/docs/ios/setup)).
 
-| Name                                             | Package                              | Version                                                                                                                                                             | Downloads                                                                                                                                                                |
-| ------------------------------------------------ | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [Analytics](./packages/analytics)                | `@capacitor-firebase/analytics`      | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/analytics?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/analytics)           | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/analytics?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/analytics)           |
-| [App](./packages/app)                            | `@capacitor-firebase/app`            | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/app?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/app)                       | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/app?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/app)                       |
-| [App Check](./packages/app-check)                | `@capacitor-firebase/app-check`      | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/app-check?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/app-check)           | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/app-check?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/app-check)           |
-| [Authentication](./packages/authentication)      | `@capacitor-firebase/authentication` | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/authentication?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/authentication) | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/authentication?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/authentication) |
-| [Crashlytics](./packages/crashlytics)            | `@capacitor-firebase/crashlytics`    | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/crashlytics?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/crashlytics)       | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/crashlytics?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/crashlytics)       |
-| [Cloud Firestore](./packages/firestore)          | `@capacitor-firebase/firestore`      | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/firestore?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/firestore)           | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/firestore?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/firestore)           |
-| [Cloud Functions](./packages/functions)          | `@capacitor-firebase/functions`      | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/functions?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/functions)           | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/functions?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/functions)           |
-| [Cloud Messaging](./packages/messaging)          | `@capacitor-firebase/messaging`      | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/messaging?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/messaging)           | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/messaging?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/messaging)           |
-| [Cloud Storage](./packages/storage)              | `@capacitor-firebase/storage`        | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/storage?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/storage)               | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/storage?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/storage)               |
-| [Performance Monitoring](./packages/performance) | `@capacitor-firebase/performance`    | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/performance?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/performance)       | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/performance?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/performance)       |
-| [Remote Config](./packages/remote-config)        | `@capacitor-firebase/remote-config`  | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/remote-config?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/remote-config)   | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/remote-config?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/remote-config)   |
+### Android
 
-## Changelogs
+#### Variables
 
-Each plugin has its own `CHANGELOG.md` file which contains information about version changes.
-Click on the name of the desired plugin under the [`Plugins`](#plugins) section to get to the plugin folder.
+This plugin will use the following project variables (defined in your app’s `variables.gradle` file):
 
-## Breaking Changes
+- `$firebaseStorageVersion` version of `com.google.firebase:firebase-storage` (default: `21.0.1`)
 
-Each plugin has its own `BREAKING.md` file which contains information about breaking changes.
-Click on the name of the desired plugin under the [`Plugins`](#plugins) section to get to the plugin folder.
+## Configuration
 
-## Contributing
+No configuration required for this plugin.
 
-See [CONTRIBUTING.md](./CONTRIBUTING.md).
+## Demo
+
+A working example can be found here: [robingenz/capacitor-firebase-plugin-demo](https://github.com/robingenz/capacitor-firebase-plugin-demo)
+
+## Starter templates
+
+The following starter templates are available:
+
+- [Ionstarter Angular Firebase](https://ionstarter.dev/)
+
+## Usage
+
+```typescript
+import { FirebaseStorage } from '@capacitor-firebase/storage';
+import { Filesystem, Directory } from '@capacitor/filesystem';
+
+const uploadFile = async () => {
+  return new Promise((resolve, reject) => {
+    await FirebaseStorage.uploadFile(
+      {
+        path: 'images/mountains.png',
+        uri: 'file:///var/mobile/Containers/Data/Application/E397A70D-67E4-4258-236E-W1D9E12111D4/Library/Caches/092F8464-DE60-40B3-8A23-EB83160D9F9F/mountains.png',
+      },
+      (event, error) => {
+        if (error) {
+          reject(error);
+        } else if (event?.completed) {
+          resolve();
+        }
+      }
+    );
+  });
+};
+
+const downloadFile = async () => {
+  const { downloadUrl } = await FirebaseStorage.getDownloadUrl({
+    path: 'images/mountains.png',
+  });
+  const { path } = await Filesystem.downloadFile({
+    url: downloadUrl,
+    path: 'mountains.png',
+    directory: Directory.Cache,
+  });
+  return path;
+};
+
+const getDownloadUrl = async () => {
+  const { downloadUrl } = await FirebaseStorage.getDownloadUrl({
+    path: 'images/mountains.png',
+  });
+  return downloadUrl;
+};
+
+const deleteFile = async () => {
+  await FirebaseStorage.deleteFile({
+    path: 'images/mountains.png',
+  });
+};
+
+const listFiles = async () => {
+  const { items } = await FirebaseStorage.listFiles({
+    path: 'images',
+  });
+  return items;
+};
+
+const getMetadata = async () => {
+  const result = await FirebaseStorage.getMetadata({
+    path: 'images/mountains.png',
+  });
+  return result;
+};
+
+const updateMetadata = async () => {
+  await FirebaseStorage.updateMetadata({
+    path: 'images/mountains.png',
+    metadata: {
+      contentType: 'image/png',
+      customMetadata: {
+        foo: 'bar',
+      },
+    },
+  });
+};
+
+const useEmulator = async () => {
+  await FirebaseStorage.useEmulator({
+    host: '10.0.2.2',
+    port: 9001,
+  });
+};
+```
+
+## API
+
+<docgen-index>
+
+* [`deleteFile(...)`](#deletefile)
+* [`getDownloadUrl(...)`](#getdownloadurl)
+* [`getMetadata(...)`](#getmetadata)
+* [`listFiles(...)`](#listfiles)
+* [`updateMetadata(...)`](#updatemetadata)
+* [`uploadFile(...)`](#uploadfile)
+* [`useEmulator(...)`](#useemulator)
+* [Interfaces](#interfaces)
+* [Type Aliases](#type-aliases)
+
+</docgen-index>
+
+<docgen-api>
+<!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
+
+### deleteFile(...)
+
+```typescript
+deleteFile(options: DeleteFileOptions) => any
+```
+
+Delete a file.
+
+| Param         | Type                                                            |
+| ------------- | --------------------------------------------------------------- |
+| **`options`** | <code><a href="#deletefileoptions">DeleteFileOptions</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 5.3.0
+
+--------------------
+
+
+### getDownloadUrl(...)
+
+```typescript
+getDownloadUrl(options: GetDownloadUrlOptions) => any
+```
+
+Get the download url for a file.
+
+| Param         | Type                                                                    |
+| ------------- | ----------------------------------------------------------------------- |
+| **`options`** | <code><a href="#getdownloadurloptions">GetDownloadUrlOptions</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 5.3.0
+
+--------------------
+
+
+### getMetadata(...)
+
+```typescript
+getMetadata(options: GetMetadataOptions) => any
+```
+
+Get the metadata for a file.
+
+| Param         | Type                                                              |
+| ------------- | ----------------------------------------------------------------- |
+| **`options`** | <code><a href="#getmetadataoptions">GetMetadataOptions</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 5.3.0
+
+--------------------
+
+
+### listFiles(...)
+
+```typescript
+listFiles(options: ListFilesOptions) => any
+```
+
+List files in a directory.
+
+| Param         | Type                                                          |
+| ------------- | ------------------------------------------------------------- |
+| **`options`** | <code><a href="#listfilesoptions">ListFilesOptions</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 5.3.0
+
+--------------------
+
+
+### updateMetadata(...)
+
+```typescript
+updateMetadata(options: UpdateMetadataOptions) => any
+```
+
+Update the metadata for a file.
+
+| Param         | Type                                                                    |
+| ------------- | ----------------------------------------------------------------------- |
+| **`options`** | <code><a href="#updatemetadataoptions">UpdateMetadataOptions</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 5.3.0
+
+--------------------
+
+
+### uploadFile(...)
+
+```typescript
+uploadFile(options: UploadFileOptions, callback: UploadFileCallback) => any
+```
+
+Upload a file.
+
+| Param          | Type                                                              |
+| -------------- | ----------------------------------------------------------------- |
+| **`options`**  | <code><a href="#uploadfileoptions">UploadFileOptions</a></code>   |
+| **`callback`** | <code><a href="#uploadfilecallback">UploadFileCallback</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 5.3.0
+
+--------------------
+
+
+### useEmulator(...)
+
+```typescript
+useEmulator(options: UseEmulatorOptions) => any
+```
+
+Instrument your app to talk to the Cloud Storage emulator.
+
+On Android, the cleartext traffic must be allowed. On the Capacitor configuration:
+```
+{
+  server: {
+    cleartext: true
+  }
+}
+```
+**The cleartext traffic is not intended for use in production.**
+
+| Param         | Type                                                              |
+| ------------- | ----------------------------------------------------------------- |
+| **`options`** | <code><a href="#useemulatoroptions">UseEmulatorOptions</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 6.1.0
+
+--------------------
+
+
+### Interfaces
+
+
+#### DeleteFileOptions
+
+| Prop       | Type                | Description                                                   | Since |
+| ---------- | ------------------- | ------------------------------------------------------------- | ----- |
+| **`path`** | <code>string</code> | The full path to the file to delete, including the file name. | 5.3.0 |
+
+
+#### GetDownloadUrlOptions
+
+| Prop       | Type                | Description                                                                     | Since |
+| ---------- | ------------------- | ------------------------------------------------------------------------------- | ----- |
+| **`path`** | <code>string</code> | The full path to the file to get the download url for, including the file name. | 5.3.0 |
+
+
+#### GetDownloadUrlResult
+
+| Prop              | Type                | Description                    | Since |
+| ----------------- | ------------------- | ------------------------------ | ----- |
+| **`downloadUrl`** | <code>string</code> | The download url for the file. | 5.3.0 |
+
+
+#### GetMetadataOptions
+
+| Prop       | Type                | Description                                                                 | Since |
+| ---------- | ------------------- | --------------------------------------------------------------------------- | ----- |
+| **`path`** | <code>string</code> | The full path to the file to get the metadata for, including the file name. | 5.3.0 |
+
+
+#### GetMetadataResult
+
+| Prop                     | Type                                    | Description                                                                       | Since |
+| ------------------------ | --------------------------------------- | --------------------------------------------------------------------------------- | ----- |
+| **`bucket`**             | <code>string</code>                     | The bucket this file is contained in.                                             | 5.3.0 |
+| **`createdAt`**          | <code>number</code>                     | The timestamp at which the file was created in milliseconds since the epoch.      | 5.3.0 |
+| **`generation`**         | <code>string</code>                     | The object's generation.                                                          | 5.3.0 |
+| **`md5Hash`**            | <code>string</code>                     | The md5 hash of the file.                                                         | 5.3.0 |
+| **`metadataGeneration`** | <code>string</code>                     | The object's metadata generation.                                                 | 5.3.0 |
+| **`name`**               | <code>string</code>                     | The short name of this file, which is the last component of the full path.        | 5.3.0 |
+| **`path`**               | <code>string</code>                     | The full path to the file, including the file name.                               | 5.3.0 |
+| **`size`**               | <code>number</code>                     | The size of the file in bytes.                                                    | 5.3.0 |
+| **`updatedAt`**          | <code>number</code>                     | The timestamp at which the file was last updated in milliseconds since the epoch. | 5.3.0 |
+| **`cacheControl`**       | <code>string</code>                     | Served as the `Cache-Control` header on object download.                          | 6.1.0 |
+| **`contentDisposition`** | <code>string</code>                     | Served as the `Content-Disposition` header on object download.                    | 6.1.0 |
+| **`contentEncoding`**    | <code>string</code>                     | Served as the `Content-Encoding` header on object download.                       | 6.1.0 |
+| **`contentLanguage`**    | <code>string</code>                     | Served as the `Content-Language` header on object download.                       | 6.1.0 |
+| **`contentType`**        | <code>string</code>                     | Served as the `Content-Type` header on object download.                           | 6.1.0 |
+| **`customMetadata`**     | <code>{ [key: string]: string; }</code> | Additional user-defined custom metadata.                                          | 6.1.0 |
+
+
+#### ListFilesOptions
+
+| Prop             | Type                | Description                                                                                                             | Default           | Since |
+| ---------------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------- | ----- |
+| **`path`**       | <code>string</code> | The full path to the directory to list files for.                                                                       |                   | 5.3.0 |
+| **`maxResults`** | <code>number</code> | The maximum number of results to return.                                                                                | <code>1000</code> | 5.3.0 |
+| **`pageToken`**  | <code>string</code> | The page token, returned by a previous call to this method. If provided, listing is resumed from the previous position. |                   | 5.3.0 |
+
+
+#### ListFilesResult
+
+| Prop                | Type                | Description                                                                           | Since |
+| ------------------- | ------------------- | ------------------------------------------------------------------------------------- | ----- |
+| **`items`**         | <code>{}</code>     | The list of files in the directory.                                                   | 5.3.0 |
+| **`nextPageToken`** | <code>string</code> | If set, there might be more results for this list. Use this token to resume the list. | 5.3.0 |
+
+
+#### StorageReference
+
+| Prop         | Type                | Description                                                                | Since |
+| ------------ | ------------------- | -------------------------------------------------------------------------- | ----- |
+| **`bucket`** | <code>string</code> | The bucket this file is contained in.                                      | 5.3.0 |
+| **`path`**   | <code>string</code> | The full path to the file, including the file name.                        | 5.3.0 |
+| **`name`**   | <code>string</code> | The short name of this file, which is the last component of the full path. | 5.3.0 |
+
+
+#### UpdateMetadataOptions
+
+| Prop           | Type                                                          | Description                                                                    | Since |
+| -------------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------ | ----- |
+| **`path`**     | <code>string</code>                                           | The full path to the file to update the metadata for, including the file name. | 5.3.0 |
+| **`metadata`** | <code><a href="#settablemetadata">SettableMetadata</a></code> | The metadata to update.                                                        | 5.3.0 |
+
+
+#### SettableMetadata
+
+| Prop                     | Type                                    | Description                                                    | Since |
+| ------------------------ | --------------------------------------- | -------------------------------------------------------------- | ----- |
+| **`cacheControl`**       | <code>string</code>                     | Served as the `Cache-Control` header on object download.       | 5.3.0 |
+| **`contentDisposition`** | <code>string</code>                     | Served as the `Content-Disposition` header on object download. | 5.3.0 |
+| **`contentEncoding`**    | <code>string</code>                     | Served as the `Content-Encoding` header on object download.    | 5.3.0 |
+| **`contentLanguage`**    | <code>string</code>                     | Served as the `Content-Language` header on object download.    | 5.3.0 |
+| **`contentType`**        | <code>string</code>                     | Served as the `Content-Type` header on object download.        | 5.3.0 |
+| **`customMetadata`**     | <code>{ [key: string]: string; }</code> | Additional user-defined custom metadata.                       | 5.3.0 |
+
+
+#### UploadFileOptions
+
+| Prop           | Type                                                      | Description                                                           | Since |
+| -------------- | --------------------------------------------------------- | --------------------------------------------------------------------- | ----- |
+| **`blob`**     | <code>Blob</code>                                         | The data to upload. Only available for Web.                           | 5.3.0 |
+| **`path`**     | <code>string</code>                                       | The full path where data should be uploaded, including the file name. | 5.3.0 |
+| **`uri`**      | <code>string</code>                                       | The uri to the file to upload. Only available for Android and iOS.    | 5.3.0 |
+| **`metadata`** | <code><a href="#uploadmetadata">UploadMetadata</a></code> | The metadata to set for the file.                                     | 5.4.0 |
+
+
+#### UploadMetadata
+
+| Prop          | Type                | Description                                                      | Since |
+| ------------- | ------------------- | ---------------------------------------------------------------- | ----- |
+| **`md5Hash`** | <code>string</code> | The base64-encoded MD5 hash of the file. Only available for Web. | 5.4.0 |
+
+
+#### UploadFileCallbackEvent
+
+| Prop                   | Type                 | Description                                                                         | Since |
+| ---------------------- | -------------------- | ----------------------------------------------------------------------------------- | ----- |
+| **`progress`**         | <code>number</code>  | The upload progress, as a percentage between 0 and 1.                               | 5.3.0 |
+| **`bytesTransferred`** | <code>number</code>  | The number of bytes that have been transferred. Only available for Android and Web. | 5.3.0 |
+| **`totalBytes`**       | <code>number</code>  | The total number of bytes to be transferred. Only available for Android and Web.    | 5.3.0 |
+| **`completed`**        | <code>boolean</code> | Whether the upload is completed or not.                                             | 5.3.0 |
+
+
+#### UseEmulatorOptions
+
+| Prop       | Type                | Description                                                                                                                                                                     | Default           | Since |
+| ---------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ----- |
+| **`host`** | <code>string</code> | The emulator host without any port or scheme. Note when using a Android Emulator device: 10.0.2.2 is the special IP address to connect to the 'localhost' of the host computer. |                   | 6.1.0 |
+| **`port`** | <code>number</code> | The emulator port.                                                                                                                                                              | <code>9199</code> | 6.1.0 |
+
+
+### Type Aliases
+
+
+#### UploadFileCallback
+
+<code>(event: <a href="#uploadfilecallbackevent">UploadFileCallbackEvent</a> | null, error: any): void</code>
+
+
+#### CallbackId
+
+<code>string</code>
+
+</docgen-api>
+
+## Changelog
+
+See [CHANGELOG.md](https://github.com/capawesome-team/capacitor-firebase/blob/main/packages/storage/CHANGELOG.md).
 
 ## License
 
-See [LICENSE](./LICENSE).
+See [LICENSE](https://github.com/capawesome-team/capacitor-firebase/blob/main/packages/storage/LICENSE).
 
 [^1]: This project is not affiliated with, endorsed by, sponsored by, or approved by Google LLC or any of their affiliates or subsidiaries.
