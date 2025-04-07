@@ -1,86 +1,457 @@
-<br />
-<div align="center">
-  <h1>
-    <img src="https://user-images.githubusercontent.com/13857929/161965231-b2c7f586-2ee8-4342-a71a-0532bb8b4c1f.png" alt="Capacitor Firebase" width="720" />
-  </h1>
-</div>
-<br />
-<p align="center">
-  <a href="https://github.com/capawesome-team/capacitor-firebase"><img src="https://img.shields.io/maintenance/yes/2025?style=flat-square" /></a>
-  <a href="https://github.com/capawesome-team/capacitor-firebase/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/capawesome-team/capacitor-firebase/ci.yml?branch=main&style=flat-square" /></a>
-  <a href="https://github.com/capawesome-team/capacitor-firebase"><img src="https://img.shields.io/github/license/capawesome-team/capacitor-firebase?style=flat-square" /></a>
-  <a href="https://github.com/capawesome-team"><img src="https://img.shields.io/badge/part%20of-capawesome-%234f46e5?style=flat-square" /></a>
-  <a href="https://turborepo.org/"><img src="https://img.shields.io/badge/maintained%20with-turborepo-%237f6ab2?style=flat-square" /></a>
-  <a href="https://devlibrary.withgoogle.com/products/firebase/repos/robingenz-capacitor-firebase"><img src="https://img.shields.io/badge/part%20of-DevLibrary-9cf?color=4285F4&logoColor=4285F4&logo=google&style=flat-square" /></a>
-</p>
+# @capacitor-firebase/remote-config
 
-## Features
-
-Capacitor Firebase is a collection of Capacitor plugins that make it easier for you to use [Firebase](https://firebase.google.com/) in your Capacitor project.[^1]
-
-- 🔋 Supports **Android, iOS and the Web**
-- ⚡️ **Capacitor 7** support
-- 🔥 **Firebase Web SDK** (modular) support
-- 🦋 Consistent versioning (no more SDK versions conflicts)
-- 👁 Unified Typescript definitions
-- 📄 Full documentation
-- ⚙️ Under active development, more plugins coming soon
-
-## Maintainers
-
-| Maintainer | GitHub                                    | Social                                        |
-| ---------- | ----------------------------------------- | --------------------------------------------- |
-| Robin Genz | [robingenz](https://github.com/robingenz) | [@robin_genz](https://twitter.com/robin_genz) |
-
-## Sponsors
-
-This is an Apache-2.0-licensed open source project.
-It can grow thanks to the support by these awesome people.
-If you'd like to join them, please read more [here](https://github.com/sponsors/capawesome-team).
-
-<p align="center">
-  <a href="https://cdn.jsdelivr.net/gh/capawesome-team/static/images/sponsors/sponsors.svg">
-    <img src="https://cdn.jsdelivr.net/gh/capawesome-team/static/images/sponsors/sponsors.svg" />
-  </a>
-</p>
+Unofficial Capacitor plugin for [Firebase Remote Config](https://firebase.google.com/docs/remote-config).[^1]
 
 ## Installation
 
-Each plugin has its own installation instructions.
-Click on the name of the desired plugin under the [`Plugins`](#plugins) section to get to the installation guide.
+```bash
+npm install @capacitor-firebase/remote-config firebase
+npx cap sync
+```
 
-## Plugins
+Add Firebase to your project if you haven't already ([Android](https://github.com/capawesome-team/capacitor-firebase/blob/main/docs/firebase-setup.md#android) / [iOS](https://github.com/capawesome-team/capacitor-firebase/blob/main/docs/firebase-setup.md#ios) / [Web](https://github.com/capawesome-team/capacitor-firebase/blob/main/docs/firebase-setup.md#web)).
 
-| Name                                             | Package                              | Version                                                                                                                                                             | Downloads                                                                                                                                                                |
-| ------------------------------------------------ | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [Analytics](./packages/analytics)                | `@capacitor-firebase/analytics`      | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/analytics?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/analytics)           | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/analytics?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/analytics)           |
-| [App](./packages/app)                            | `@capacitor-firebase/app`            | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/app?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/app)                       | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/app?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/app)                       |
-| [App Check](./packages/app-check)                | `@capacitor-firebase/app-check`      | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/app-check?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/app-check)           | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/app-check?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/app-check)           |
-| [Authentication](./packages/authentication)      | `@capacitor-firebase/authentication` | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/authentication?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/authentication) | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/authentication?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/authentication) |
-| [Crashlytics](./packages/crashlytics)            | `@capacitor-firebase/crashlytics`    | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/crashlytics?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/crashlytics)       | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/crashlytics?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/crashlytics)       |
-| [Cloud Firestore](./packages/firestore)          | `@capacitor-firebase/firestore`      | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/firestore?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/firestore)           | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/firestore?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/firestore)           |
-| [Cloud Functions](./packages/functions)          | `@capacitor-firebase/functions`      | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/functions?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/functions)           | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/functions?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/functions)           |
-| [Cloud Messaging](./packages/messaging)          | `@capacitor-firebase/messaging`      | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/messaging?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/messaging)           | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/messaging?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/messaging)           |
-| [Cloud Storage](./packages/storage)              | `@capacitor-firebase/storage`        | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/storage?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/storage)               | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/storage?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/storage)               |
-| [Performance Monitoring](./packages/performance) | `@capacitor-firebase/performance`    | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/performance?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/performance)       | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/performance?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/performance)       |
-| [Remote Config](./packages/remote-config)        | `@capacitor-firebase/remote-config`  | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/remote-config?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/remote-config)   | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/remote-config?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/remote-config)   |
+### Android
 
-## Changelogs
+Google Analytics is required for the [conditional targeting of app instances](https://firebase.google.com/docs/remote-config/parameters#conditions_rules_and_conditional_values) to user properties and audiences. Make sure that you install the [Capacitor Firebase Analytics](https://github.com/capawesome-team/capacitor-firebase/blob/main/packages/analytics) plugin in your project.
 
-Each plugin has its own `CHANGELOG.md` file which contains information about version changes.
-Click on the name of the desired plugin under the [`Plugins`](#plugins) section to get to the plugin folder.
+#### Variables
 
-## Breaking Changes
+This plugin will use the following project variables (defined in your app’s `variables.gradle` file):
 
-Each plugin has its own `BREAKING.md` file which contains information about breaking changes.
-Click on the name of the desired plugin under the [`Plugins`](#plugins) section to get to the plugin folder.
+- `$firebaseConfigVersion` version of `com.google.firebase:firebase-config` (default: `22.1.0`)
 
-## Contributing
+## Configuration
 
-See [CONTRIBUTING.md](./CONTRIBUTING.md).
+No configuration required for this plugin.
+
+## Demo
+
+A working example can be found here: [robingenz/capacitor-firebase-plugin-demo](https://github.com/robingenz/capacitor-firebase-plugin-demo)
+
+## Starter templates
+
+The following starter templates are available:
+
+- [Ionstarter Angular Firebase](https://ionstarter.dev/)
+
+## Usage
+
+```typescript
+import { FirebaseRemoteConfig } from '@capacitor-firebase/remote-config';
+
+const activate = async () => {
+  await FirebaseRemoteConfig.activate();
+};
+
+const fetchAndActivate = async () => {
+  await FirebaseRemoteConfig.fetchAndActivate();
+};
+
+const fetchConfig = async () => {
+  await FirebaseRemoteConfig.fetchConfig({
+    minimumFetchIntervalInSeconds: 1200,
+  });
+};
+
+const getBoolean = async () => {
+  const { value } = await FirebaseRemoteConfig.getBoolean({
+    key: 'is_sale',
+  });
+  return value;
+};
+
+const getNumber = async () => {
+  const { value } = await FirebaseRemoteConfig.getNumber({
+    key: 'upcoming_maintenance',
+  });
+  return value;
+};
+
+const getString = async () => {
+  const { value } = await FirebaseRemoteConfig.getString({
+    key: 'license_key',
+  });
+  return value;
+};
+
+const setSettings = async () => {
+  await FirebaseRemoteConfig.setSettings({
+    fetchTimeoutInSeconds: 10,
+    minimumFetchIntervalInSeconds: 0,
+  });
+};
+
+const addConfigUpdateListener = async () => {
+  const callbackId = await FirebaseRemoteConfig.addConfigUpdateListener(
+    (event, error) => {
+      if (error) {
+        console.error(error);
+      } else {
+        console.log(event);
+      }
+    }
+  );
+  return callbackId;
+};
+
+const removeConfigUpdateListener = async (callbackId: string) => {
+  await FirebaseRemoteConfig.removeConfigUpdateListener({
+    callbackId,
+  });
+};
+
+const removeAllListeners = async () => {
+  await FirebaseRemoteConfig.removeAllListeners();
+};
+```
+
+## API
+
+<docgen-index>
+
+* [`activate()`](#activate)
+* [`fetchAndActivate()`](#fetchandactivate)
+* [`fetchConfig(...)`](#fetchconfig)
+* [`getBoolean(...)`](#getboolean)
+* [`getNumber(...)`](#getnumber)
+* [`getString(...)`](#getstring)
+* [`setMinimumFetchInterval(...)`](#setminimumfetchinterval)
+* [`setSettings(...)`](#setsettings)
+* [`addConfigUpdateListener(...)`](#addconfigupdatelistener)
+* [`removeConfigUpdateListener(...)`](#removeconfigupdatelistener)
+* [`removeAllListeners()`](#removealllisteners)
+* [Interfaces](#interfaces)
+* [Type Aliases](#type-aliases)
+* [Enums](#enums)
+
+</docgen-index>
+
+<docgen-api>
+<!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
+
+### activate()
+
+```typescript
+activate() => any
+```
+
+Make the last fetched configuration available to the getters.
+
+**Returns:** <code>any</code>
+
+**Since:** 1.3.0
+
+--------------------
+
+
+### fetchAndActivate()
+
+```typescript
+fetchAndActivate() => any
+```
+
+Perform fetch and activate operations.
+
+**Returns:** <code>any</code>
+
+**Since:** 1.3.0
+
+--------------------
+
+
+### fetchConfig(...)
+
+```typescript
+fetchConfig(options?: FetchConfigOptions | undefined) => any
+```
+
+Fetch and cache configuration from the Remote Config service.
+
+| Param         | Type                                                              |
+| ------------- | ----------------------------------------------------------------- |
+| **`options`** | <code><a href="#fetchconfigoptions">FetchConfigOptions</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 1.3.0
+
+--------------------
+
+
+### getBoolean(...)
+
+```typescript
+getBoolean(options: GetBooleanOptions) => any
+```
+
+Get the value for the given key as a boolean.
+
+| Param         | Type                                              |
+| ------------- | ------------------------------------------------- |
+| **`options`** | <code><a href="#getoptions">GetOptions</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 1.3.0
+
+--------------------
+
+
+### getNumber(...)
+
+```typescript
+getNumber(options: GetNumberOptions) => any
+```
+
+Get the value for the given key as a number.
+
+| Param         | Type                                              |
+| ------------- | ------------------------------------------------- |
+| **`options`** | <code><a href="#getoptions">GetOptions</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 1.3.0
+
+--------------------
+
+
+### getString(...)
+
+```typescript
+getString(options: GetStringOptions) => any
+```
+
+Get the value for the given key as a string.
+
+| Param         | Type                                              |
+| ------------- | ------------------------------------------------- |
+| **`options`** | <code><a href="#getoptions">GetOptions</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 1.3.0
+
+--------------------
+
+
+### setMinimumFetchInterval(...)
+
+```typescript
+setMinimumFetchInterval(options: SetMinimumFetchIntervalOptions) => any
+```
+
+Set the minimum fetch interval.
+
+Only available for Web.
+
+| Param         | Type                                                                                      |
+| ------------- | ----------------------------------------------------------------------------------------- |
+| **`options`** | <code><a href="#setminimumfetchintervaloptions">SetMinimumFetchIntervalOptions</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 1.3.0
+
+--------------------
+
+
+### setSettings(...)
+
+```typescript
+setSettings(options: SetSettingsOptions) => any
+```
+
+Set the remote config settings.
+
+On Android, the settings values are persisted in SharedPreferences.
+
+| Param         | Type                                                              |
+| ------------- | ----------------------------------------------------------------- |
+| **`options`** | <code><a href="#setsettingsoptions">SetSettingsOptions</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 6.2.0
+
+--------------------
+
+
+### addConfigUpdateListener(...)
+
+```typescript
+addConfigUpdateListener(callback: AddConfigUpdateListenerOptionsCallback) => any
+```
+
+Add a listener for the config update event.
+
+Only available for Android and iOS.
+
+| Param          | Type                                                                                                      |
+| -------------- | --------------------------------------------------------------------------------------------------------- |
+| **`callback`** | <code><a href="#addconfigupdatelisteneroptionscallback">AddConfigUpdateListenerOptionsCallback</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 5.4.0
+
+--------------------
+
+
+### removeConfigUpdateListener(...)
+
+```typescript
+removeConfigUpdateListener(options: RemoveConfigUpdateListenerOptions) => any
+```
+
+Remove a listener for the config update event.
+
+Only available for Android and iOS.
+
+| Param         | Type                                                                                            |
+| ------------- | ----------------------------------------------------------------------------------------------- |
+| **`options`** | <code><a href="#removeconfigupdatelisteneroptions">RemoveConfigUpdateListenerOptions</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 5.4.0
+
+--------------------
+
+
+### removeAllListeners()
+
+```typescript
+removeAllListeners() => any
+```
+
+Remove all listeners for this plugin.
+
+**Returns:** <code>any</code>
+
+**Since:** 5.4.0
+
+--------------------
+
+
+### Interfaces
+
+
+#### FetchConfigOptions
+
+| Prop                                | Type                | Description                                                                                                                                                                                                               | Default            | Since |
+| ----------------------------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ----- |
+| **`minimumFetchIntervalInSeconds`** | <code>number</code> | Define the maximum age in seconds of an entry in the config cache before it is considered stale. During development, it's recommended to set a relatively low minimum fetch interval. Only available for Android and iOS. | <code>43200</code> | 1.3.0 |
+
+
+#### GetOptions
+
+| Prop      | Type                | Description                  | Since |
+| --------- | ------------------- | ---------------------------- | ----- |
+| **`key`** | <code>string</code> | The key of the value to get. | 1.3.0 |
+
+
+#### GetBooleanResult
+
+| Prop         | Type                                                      | Description                                                                         | Since |
+| ------------ | --------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----- |
+| **`value`**  | <code>boolean</code>                                      | The value for the given key as a boolean.                                           | 1.3.0 |
+| **`source`** | <code><a href="#getvaluesource">GetValueSource</a></code> | Indicates at which source this value came from. Only available for Android and iOS. | 1.3.0 |
+
+
+#### GetNumberResult
+
+| Prop         | Type                                                      | Description                                                                         | Since |
+| ------------ | --------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----- |
+| **`value`**  | <code>number</code>                                       | The value for the given key as a number.                                            | 1.3.0 |
+| **`source`** | <code><a href="#getvaluesource">GetValueSource</a></code> | Indicates at which source this value came from. Only available for Android and iOS. | 1.3.0 |
+
+
+#### GetStringResult
+
+| Prop         | Type                                                      | Description                                                                         | Since |
+| ------------ | --------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----- |
+| **`value`**  | <code>string</code>                                       | The value for the given key as a string.                                            | 1.3.0 |
+| **`source`** | <code><a href="#getvaluesource">GetValueSource</a></code> | Indicates at which source this value came from. Only available for Android and iOS. | 1.3.0 |
+
+
+#### SetMinimumFetchIntervalOptions
+
+| Prop                                | Type                | Description                                                                                                                                                                           | Default            | Since |
+| ----------------------------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ----- |
+| **`minimumFetchIntervalInSeconds`** | <code>number</code> | Define the maximum age in seconds of an entry in the config cache before it is considered stale. During development, it's recommended to set a relatively low minimum fetch interval. | <code>43200</code> | 1.3.0 |
+
+
+#### SetSettingsOptions
+
+| Prop                                | Type                | Description                                                                                                                                                                           | Default            | Since |
+| ----------------------------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ----- |
+| **`fetchTimeoutInSeconds`**         | <code>number</code> | Defines the maximum amount of milliseconds to wait for a response when fetching configuration from the Remote Config server.                                                          | <code>60</code>    | 6.2.0 |
+| **`minimumFetchIntervalInSeconds`** | <code>number</code> | Define the maximum age in seconds of an entry in the config cache before it is considered stale. During development, it's recommended to set a relatively low minimum fetch interval. | <code>43200</code> | 6.2.0 |
+
+
+#### AddConfigUpdateListenerOptionsCallbackEvent
+
+| Prop              | Type            | Description                                                                        | Since |
+| ----------------- | --------------- | ---------------------------------------------------------------------------------- | ----- |
+| **`updatedKeys`** | <code>{}</code> | Parameter keys whose values have been updated from the currently activated values. | 5.4.0 |
+
+
+#### RemoveConfigUpdateListenerOptions
+
+| Prop     | Type                                              | Description                       | Since |
+| -------- | ------------------------------------------------- | --------------------------------- | ----- |
+| **`id`** | <code><a href="#callbackid">CallbackId</a></code> | The id of the listener to remove. | 5.4.0 |
+
+
+### Type Aliases
+
+
+#### GetBooleanOptions
+
+<code><a href="#getoptions">GetOptions</a></code>
+
+
+#### GetNumberOptions
+
+<code><a href="#getoptions">GetOptions</a></code>
+
+
+#### GetStringOptions
+
+<code><a href="#getoptions">GetOptions</a></code>
+
+
+#### AddConfigUpdateListenerOptionsCallback
+
+<code>(event: <a href="#addconfigupdatelisteneroptionscallbackevent">AddConfigUpdateListenerOptionsCallbackEvent</a> | null, error: any): void</code>
+
+
+#### CallbackId
+
+<code>string</code>
+
+
+### Enums
+
+
+#### GetValueSource
+
+| Members       | Value          | Description                                                                             | Since |
+| ------------- | -------------- | --------------------------------------------------------------------------------------- | ----- |
+| **`Static`**  | <code>0</code> | Indicates that the value returned is the static default value.                          | 1.3.0 |
+| **`Default`** | <code>1</code> | Indicates that the value returned was retrieved from the defaults set by the client.    | 1.3.0 |
+| **`Remote`**  | <code>2</code> | Indicates that the value returned was retrieved from the Firebase Remote Config Server. | 1.3.0 |
+
+</docgen-api>
+
+## Changelog
+
+See [CHANGELOG.md](https://github.com/capawesome-team/capacitor-firebase/blob/main/packages/remote-config/CHANGELOG.md).
 
 ## License
 
-See [LICENSE](./LICENSE).
+See [LICENSE](https://github.com/capawesome-team/capacitor-firebase/blob/main/packages/remote-config/LICENSE).
 
 [^1]: This project is not affiliated with, endorsed by, sponsored by, or approved by Google LLC or any of their affiliates or subsidiaries.
