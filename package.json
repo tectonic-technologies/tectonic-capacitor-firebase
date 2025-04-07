@@ -2,6 +2,7 @@
   "name": "capacitor-firebase",
   "private": true,
   "packageManager": "npm@8.3.0",
+  "version": "1.1.0",
   "workspaces": [
     "packages/*"
   ],
@@ -28,7 +29,9 @@
     "affected:ios:spm:install": "turbo run ios:spm:install --since=origin/main --concurrency=1 --no-cache",
     "changeset": "changeset",
     "release": "npm run build && changeset publish",
-    "release:preview": "pkg-pr-new publish './packages/*'"
+    "release:preview": "pkg-pr-new publish './packages/*'",
+    "release:prepare": "node scripts/prepare.js",
+    "release:distribute": "node scripts/distribute.js"
   },
   "devDependencies": {
     "@changesets/cli": "2.27.12",
