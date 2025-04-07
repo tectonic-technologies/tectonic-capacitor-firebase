@@ -1,86 +1,464 @@
-<br />
-<div align="center">
-  <h1>
-    <img src="https://user-images.githubusercontent.com/13857929/161965231-b2c7f586-2ee8-4342-a71a-0532bb8b4c1f.png" alt="Capacitor Firebase" width="720" />
-  </h1>
-</div>
-<br />
-<p align="center">
-  <a href="https://github.com/capawesome-team/capacitor-firebase"><img src="https://img.shields.io/maintenance/yes/2025?style=flat-square" /></a>
-  <a href="https://github.com/capawesome-team/capacitor-firebase/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/capawesome-team/capacitor-firebase/ci.yml?branch=main&style=flat-square" /></a>
-  <a href="https://github.com/capawesome-team/capacitor-firebase"><img src="https://img.shields.io/github/license/capawesome-team/capacitor-firebase?style=flat-square" /></a>
-  <a href="https://github.com/capawesome-team"><img src="https://img.shields.io/badge/part%20of-capawesome-%234f46e5?style=flat-square" /></a>
-  <a href="https://turborepo.org/"><img src="https://img.shields.io/badge/maintained%20with-turborepo-%237f6ab2?style=flat-square" /></a>
-  <a href="https://devlibrary.withgoogle.com/products/firebase/repos/robingenz-capacitor-firebase"><img src="https://img.shields.io/badge/part%20of-DevLibrary-9cf?color=4285F4&logoColor=4285F4&logo=google&style=flat-square" /></a>
-</p>
+# @capacitor-firebase/analytics
 
-## Features
-
-Capacitor Firebase is a collection of Capacitor plugins that make it easier for you to use [Firebase](https://firebase.google.com/) in your Capacitor project.[^1]
-
-- 🔋 Supports **Android, iOS and the Web**
-- ⚡️ **Capacitor 7** support
-- 🔥 **Firebase Web SDK** (modular) support
-- 🦋 Consistent versioning (no more SDK versions conflicts)
-- 👁 Unified Typescript definitions
-- 📄 Full documentation
-- ⚙️ Under active development, more plugins coming soon
-
-## Maintainers
-
-| Maintainer | GitHub                                    | Social                                        |
-| ---------- | ----------------------------------------- | --------------------------------------------- |
-| Robin Genz | [robingenz](https://github.com/robingenz) | [@robin_genz](https://twitter.com/robin_genz) |
-
-## Sponsors
-
-This is an Apache-2.0-licensed open source project.
-It can grow thanks to the support by these awesome people.
-If you'd like to join them, please read more [here](https://github.com/sponsors/capawesome-team).
-
-<p align="center">
-  <a href="https://cdn.jsdelivr.net/gh/capawesome-team/static/images/sponsors/sponsors.svg">
-    <img src="https://cdn.jsdelivr.net/gh/capawesome-team/static/images/sponsors/sponsors.svg" />
-  </a>
-</p>
+Unofficial Capacitor plugin for [Firebase Analytics](https://firebase.google.com/docs/analytics).[^1]
 
 ## Installation
 
-Each plugin has its own installation instructions.
-Click on the name of the desired plugin under the [`Plugins`](#plugins) section to get to the installation guide.
+```bash
+npm install @capacitor-firebase/analytics firebase
+npx cap sync
+```
 
-## Plugins
+Add Firebase to your project if you haven't already ([Android](https://github.com/capawesome-team/capacitor-firebase/blob/main/docs/firebase-setup.md#android) / [iOS](https://github.com/capawesome-team/capacitor-firebase/blob/main/docs/firebase-setup.md#ios) / [Web](https://github.com/capawesome-team/capacitor-firebase/blob/main/docs/firebase-setup.md#web)).
 
-| Name                                             | Package                              | Version                                                                                                                                                             | Downloads                                                                                                                                                                |
-| ------------------------------------------------ | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [Analytics](./packages/analytics)                | `@capacitor-firebase/analytics`      | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/analytics?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/analytics)           | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/analytics?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/analytics)           |
-| [App](./packages/app)                            | `@capacitor-firebase/app`            | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/app?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/app)                       | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/app?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/app)                       |
-| [App Check](./packages/app-check)                | `@capacitor-firebase/app-check`      | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/app-check?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/app-check)           | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/app-check?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/app-check)           |
-| [Authentication](./packages/authentication)      | `@capacitor-firebase/authentication` | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/authentication?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/authentication) | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/authentication?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/authentication) |
-| [Crashlytics](./packages/crashlytics)            | `@capacitor-firebase/crashlytics`    | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/crashlytics?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/crashlytics)       | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/crashlytics?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/crashlytics)       |
-| [Cloud Firestore](./packages/firestore)          | `@capacitor-firebase/firestore`      | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/firestore?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/firestore)           | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/firestore?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/firestore)           |
-| [Cloud Functions](./packages/functions)          | `@capacitor-firebase/functions`      | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/functions?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/functions)           | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/functions?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/functions)           |
-| [Cloud Messaging](./packages/messaging)          | `@capacitor-firebase/messaging`      | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/messaging?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/messaging)           | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/messaging?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/messaging)           |
-| [Cloud Storage](./packages/storage)              | `@capacitor-firebase/storage`        | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/storage?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/storage)               | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/storage?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/storage)               |
-| [Performance Monitoring](./packages/performance) | `@capacitor-firebase/performance`    | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/performance?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/performance)       | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/performance?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/performance)       |
-| [Remote Config](./packages/remote-config)        | `@capacitor-firebase/remote-config`  | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/remote-config?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/remote-config)   | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/remote-config?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/remote-config)   |
+### Android
 
-## Changelogs
+#### Disable Analytics data collection
 
-Each plugin has its own `CHANGELOG.md` file which contains information about version changes.
-Click on the name of the desired plugin under the [`Plugins`](#plugins) section to get to the plugin folder.
+See [Disable Analytics data collection](https://firebase.google.com/docs/analytics/configure-data-collection?platform=android#disable_data_collection) if you want to disable Analytics data collection.
 
-## Breaking Changes
+#### Disable Advertising ID collection
 
-Each plugin has its own `BREAKING.md` file which contains information about breaking changes.
-Click on the name of the desired plugin under the [`Plugins`](#plugins) section to get to the plugin folder.
+See [Disable Advertising ID collection](https://firebase.google.com/docs/analytics/configure-data-collection?platform=android#disable_advertising_id_collection) if you want to disable Advertising ID collection.
 
-## Contributing
+#### Variables
 
-See [CONTRIBUTING.md](./CONTRIBUTING.md).
+This plugin will use the following project variables (defined in your app’s `variables.gradle` file):
+
+- `$firebaseAnalyticsVersion` version of `com.google.firebase:firebase-analytics` (default: `22.2.0`)
+
+### iOS
+
+If you are using **CocoaPods** for your iOS project, you need to add the `CapacitorFirebaseAnalytics/Analytics` pod to your `Podfile` (usually `ios/App/Podfile`):
+
+```diff
+target 'App' do
+capacitor_pods
+# Add your Pods here
++  pod 'CapacitorFirebaseAnalytics/Analytics', :path => '../../node_modules/@capacitor-firebase/analytics'
+end
+```
+
+**Attention**: Do not add the pod in the section `def capacitor_pods`, but under the comment `# Add your Pods here` ([example](https://github.com/robingenz/capacitor-firebase-plugin-demo/blob/e1684a0af6871442ed0a87dceeeba6fd9ce0185d/ios/App/Podfile#L30)).
+
+#### Disable Analytics data collection
+
+See [Disable Analytics data collection](https://firebase.google.com/docs/analytics/configure-data-collection?platform=ios#disable_data_collection) if you want to disable Analytics data collection.
+
+#### Disable IDFA collection
+
+If you are using **CocoaPods** for your iOS project and you want to disable IDFA collection, you can use the `CapacitorFirebaseAnalytics/AnalyticsWithoutAdIdSupport` pod instead of the `CapacitorFirebaseAnalytics/Analytics` pod:
+
+```diff
+target 'App' do
+capacitor_pods
+# Add your Pods here
+-  pod 'CapacitorFirebaseAnalytics/Analytics', :path => '../../node_modules/@capacitor-firebase/analytics'
++  pod 'CapacitorFirebaseAnalytics/AnalyticsWithoutAdIdSupport', :path => '../../node_modules/@capacitor-firebase/analytics'
+end
+```
+
+## Configuration
+
+No configuration required for this plugin.
+
+## Demo
+
+A working example can be found here: [robingenz/capacitor-firebase-plugin-demo](https://github.com/robingenz/capacitor-firebase-plugin-demo)
+
+## Usage
+
+```typescript
+import { FirebaseAnalytics } from '@capacitor-firebase/analytics';
+
+const setUserId = async () => {
+  await FirebaseAnalytics.setUserId({
+    userId: '123',
+  });
+};
+
+const setUserProperty = async () => {
+  await FirebaseAnalytics.setUserProperty({
+    key: 'language',
+    value: 'en',
+  });
+};
+
+const setCurrentScreen = async () => {
+  await FirebaseAnalytics.setCurrentScreen({
+    screenName: 'Login',
+    screenClassOverride: 'LoginPage',
+  });
+};
+
+const logEvent = async () => {
+  await FirebaseAnalytics.logEvent({
+    name: 'sign_up',
+    params: { method: 'password' },
+  });
+};
+
+const setSessionTimeoutDuration = async () => {
+  await FirebaseAnalytics.setSessionTimeoutDuration({
+    duration: '120',
+  });
+};
+
+const setEnabled = async () => {
+  await FirebaseAnalytics.setEnabled({
+    enabled: true,
+  });
+};
+
+const isEnabled = async () => {
+  const { enabled } = await FirebaseAnalytics.isEnabled();
+  return enabled;
+};
+
+const resetAnalyticsData = async () => {
+  await FirebaseAnalytics.resetAnalyticsData();
+};
+```
+
+## API
+
+<docgen-index>
+
+* [`getAppInstanceId()`](#getappinstanceid)
+* [`getAppSessionId()`](#getappsessionid)
+* [`setConsent(...)`](#setconsent)
+* [`setUserId(...)`](#setuserid)
+* [`setUserProperty(...)`](#setuserproperty)
+* [`setCurrentScreen(...)`](#setcurrentscreen)
+* [`logEvent(...)`](#logevent)
+* [`setSessionTimeoutDuration(...)`](#setsessiontimeoutduration)
+* [`setEnabled(...)`](#setenabled)
+* [`isEnabled()`](#isenabled)
+* [`resetAnalyticsData()`](#resetanalyticsdata)
+* [Interfaces](#interfaces)
+* [Enums](#enums)
+
+</docgen-index>
+
+<docgen-api>
+<!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
+
+### getAppInstanceId()
+
+```typescript
+getAppInstanceId() => any
+```
+
+Retrieves the app instance id.
+
+Only available for Android and iOS.
+
+**Returns:** <code>any</code>
+
+**Since:** 1.4.0
+
+--------------------
+
+
+### getAppSessionId()
+
+```typescript
+getAppSessionId() => any
+```
+
+Retrieves the session id.
+
+Only available for Android and iOS.
+
+**Returns:** <code>any</code>
+
+**Since:** 1.4.0
+
+--------------------
+
+
+### setConsent(...)
+
+```typescript
+setConsent(options: SetConsentOptions) => any
+```
+
+Sets the user's consent mode.
+
+| Param         | Type                                                            |
+| ------------- | --------------------------------------------------------------- |
+| **`options`** | <code><a href="#setconsentoptions">SetConsentOptions</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 6.0.0
+
+--------------------
+
+
+### setUserId(...)
+
+```typescript
+setUserId(options: SetUserIdOptions) => any
+```
+
+Sets the user ID property.
+
+| Param         | Type                                                          |
+| ------------- | ------------------------------------------------------------- |
+| **`options`** | <code><a href="#setuseridoptions">SetUserIdOptions</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 0.1.0
+
+--------------------
+
+
+### setUserProperty(...)
+
+```typescript
+setUserProperty(options: SetUserPropertyOptions) => any
+```
+
+Sets a custom user property to a given value.
+
+| Param         | Type                                                                      |
+| ------------- | ------------------------------------------------------------------------- |
+| **`options`** | <code><a href="#setuserpropertyoptions">SetUserPropertyOptions</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 0.1.0
+
+--------------------
+
+
+### setCurrentScreen(...)
+
+```typescript
+setCurrentScreen(options: SetCurrentScreenOptions) => any
+```
+
+Sets the current screen name.
+
+| Param         | Type                                                                        |
+| ------------- | --------------------------------------------------------------------------- |
+| **`options`** | <code><a href="#setcurrentscreenoptions">SetCurrentScreenOptions</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 0.1.0
+
+--------------------
+
+
+### logEvent(...)
+
+```typescript
+logEvent(options: LogEventOptions) => any
+```
+
+Logs an app event.
+
+| Param         | Type                                                        |
+| ------------- | ----------------------------------------------------------- |
+| **`options`** | <code><a href="#logeventoptions">LogEventOptions</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 0.1.0
+
+--------------------
+
+
+### setSessionTimeoutDuration(...)
+
+```typescript
+setSessionTimeoutDuration(options: SetSessionTimeoutDurationOptions) => any
+```
+
+Sets the duration of inactivity that terminates the current session.
+
+Only available for Android and iOS.
+
+| Param         | Type                                                                                          |
+| ------------- | --------------------------------------------------------------------------------------------- |
+| **`options`** | <code><a href="#setsessiontimeoutdurationoptions">SetSessionTimeoutDurationOptions</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 0.1.0
+
+--------------------
+
+
+### setEnabled(...)
+
+```typescript
+setEnabled(options: SetEnabledOptions) => any
+```
+
+Enables/disables automatic data collection.
+The value does not apply until the next run of the app.
+
+| Param         | Type                                                            |
+| ------------- | --------------------------------------------------------------- |
+| **`options`** | <code><a href="#setenabledoptions">SetEnabledOptions</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 0.1.0
+
+--------------------
+
+
+### isEnabled()
+
+```typescript
+isEnabled() => any
+```
+
+Returns whether or not automatic data collection is enabled.
+
+Only available for Web.
+
+**Returns:** <code>any</code>
+
+**Since:** 0.1.0
+
+--------------------
+
+
+### resetAnalyticsData()
+
+```typescript
+resetAnalyticsData() => any
+```
+
+Clears all analytics data for this app from the device.
+Resets the app instance id.
+
+Only available for Android and iOS.
+
+**Returns:** <code>any</code>
+
+**Since:** 0.1.0
+
+--------------------
+
+
+### Interfaces
+
+
+#### GetAppInstanceIdResult
+
+| Prop                | Type                | Description                                                                                                                                                                                             | Since |
+| ------------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
+| **`appInstanceId`** | <code>string</code> | The app instance id. Not defined if `FirebaseAnalytics.<a href="#consenttype">ConsentType</a>.ANALYTICS_STORAGE` has been set to `FirebaseAnalytics.<a href="#consentstatus">ConsentStatus</a>.DENIED`. | 1.4.0 |
+
+
+#### GetSessionIdResult
+
+| Prop               | Type                | Description                                                                                                                                                                                            | Since |
+| ------------------ | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----- |
+| **`appSessionId`** | <code>number</code> | The app session id. Not defined if `FirebaseAnalytics.<a href="#consenttype">ConsentType</a>.ANALYTICS_STORAGE` has been set to `FirebaseAnalytics.<a href="#consentstatus">ConsentStatus</a>.DENIED`. | 1.4.0 |
+
+
+#### SetConsentOptions
+
+| Prop         | Type                                                    | Description         | Since |
+| ------------ | ------------------------------------------------------- | ------------------- | ----- |
+| **`type`**   | <code><a href="#consenttype">ConsentType</a></code>     | The consent type.   | 6.0.0 |
+| **`status`** | <code><a href="#consentstatus">ConsentStatus</a></code> | The consent status. | 6.0.0 |
+
+
+#### SetUserIdOptions
+
+| Prop         | Type                        | Since |
+| ------------ | --------------------------- | ----- |
+| **`userId`** | <code>string \| null</code> | 0.1.0 |
+
+
+#### SetUserPropertyOptions
+
+| Prop        | Type                        | Since |
+| ----------- | --------------------------- | ----- |
+| **`key`**   | <code>string</code>         | 0.1.0 |
+| **`value`** | <code>string \| null</code> | 0.1.0 |
+
+
+#### SetCurrentScreenOptions
+
+| Prop                      | Type                        | Description                         | Default           | Since |
+| ------------------------- | --------------------------- | ----------------------------------- | ----------------- | ----- |
+| **`screenName`**          | <code>string \| null</code> |                                     |                   | 0.1.0 |
+| **`screenClassOverride`** | <code>string \| null</code> | Only available for Android and iOS. | <code>null</code> | 0.1.0 |
+
+
+#### LogEventOptions
+
+| Prop         | Type                                 | Description                | Since |
+| ------------ | ------------------------------------ | -------------------------- | ----- |
+| **`name`**   | <code>string</code>                  | The event name.            | 0.1.0 |
+| **`params`** | <code>{ [key: string]: any; }</code> | The optional event params. | 0.1.0 |
+
+
+#### SetSessionTimeoutDurationOptions
+
+| Prop           | Type                | Description          | Default           | Since |
+| -------------- | ------------------- | -------------------- | ----------------- | ----- |
+| **`duration`** | <code>number</code> | Duration in seconds. | <code>1800</code> | 0.1.0 |
+
+
+#### SetEnabledOptions
+
+| Prop          | Type                 | Since |
+| ------------- | -------------------- | ----- |
+| **`enabled`** | <code>boolean</code> | 0.1.0 |
+
+
+#### IsEnabledResult
+
+| Prop          | Type                 | Since |
+| ------------- | -------------------- | ----- |
+| **`enabled`** | <code>boolean</code> | 0.1.0 |
+
+
+### Enums
+
+
+#### ConsentType
+
+| Members                      | Value                                  | Since |
+| ---------------------------- | -------------------------------------- | ----- |
+| **`AdPersonalization`**      | <code>'AD_PERSONALIZATION'</code>      | 6.0.0 |
+| **`AdStorage`**              | <code>'AD_STORAGE'</code>              | 6.0.0 |
+| **`AdUserData`**             | <code>'AD_USER_DATA'</code>            | 6.0.0 |
+| **`AnalyticsStorage`**       | <code>'ANALYTICS_STORAGE'</code>       | 6.0.0 |
+| **`FunctionalityStorage`**   | <code>'FUNCTIONALITY_STORAGE'</code>   | 6.0.0 |
+| **`PersonalizationStorage`** | <code>'PERSONALIZATION_STORAGE'</code> | 6.0.0 |
+
+
+#### ConsentStatus
+
+| Members       | Value                  | Since |
+| ------------- | ---------------------- | ----- |
+| **`Granted`** | <code>'GRANTED'</code> | 6.0.0 |
+| **`Denied`**  | <code>'DENIED'</code>  | 6.0.0 |
+
+</docgen-api>
+
+## Test your implementation
+
+[Here](https://firebase.google.com/docs/analytics/debugview) you can find more information on how to test the Firebase Analytics implementation using the **DebugView**.
+
+## Changelog
+
+See [CHANGELOG.md](https://github.com/capawesome-team/capacitor-firebase/blob/main/packages/analytics/CHANGELOG.md).
 
 ## License
 
-See [LICENSE](./LICENSE).
+See [LICENSE](https://github.com/capawesome-team/capacitor-firebase/blob/main/packages/analytics/LICENSE).
 
 [^1]: This project is not affiliated with, endorsed by, sponsored by, or approved by Google LLC or any of their affiliates or subsidiaries.
