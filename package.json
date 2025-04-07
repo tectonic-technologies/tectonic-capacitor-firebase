@@ -30,7 +30,8 @@
     "changeset": "changeset",
     "release": "npm run build && changeset publish",
     "release:preview": "pkg-pr-new publish './packages/*'",
-    "distribute": "node scripts/distribute.js"
+    "release:prepare": "node scripts/prepare.js",
+    "release:distribute": "node scripts/distribute.js"
   },
   "devDependencies": {
     "@changesets/cli": "2.27.12",
