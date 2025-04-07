@@ -1,86 +1,503 @@
-<br />
-<div align="center">
-  <h1>
-    <img src="https://user-images.githubusercontent.com/13857929/161965231-b2c7f586-2ee8-4342-a71a-0532bb8b4c1f.png" alt="Capacitor Firebase" width="720" />
-  </h1>
-</div>
-<br />
-<p align="center">
-  <a href="https://github.com/capawesome-team/capacitor-firebase"><img src="https://img.shields.io/maintenance/yes/2025?style=flat-square" /></a>
-  <a href="https://github.com/capawesome-team/capacitor-firebase/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/capawesome-team/capacitor-firebase/ci.yml?branch=main&style=flat-square" /></a>
-  <a href="https://github.com/capawesome-team/capacitor-firebase"><img src="https://img.shields.io/github/license/capawesome-team/capacitor-firebase?style=flat-square" /></a>
-  <a href="https://github.com/capawesome-team"><img src="https://img.shields.io/badge/part%20of-capawesome-%234f46e5?style=flat-square" /></a>
-  <a href="https://turborepo.org/"><img src="https://img.shields.io/badge/maintained%20with-turborepo-%237f6ab2?style=flat-square" /></a>
-  <a href="https://devlibrary.withgoogle.com/products/firebase/repos/robingenz-capacitor-firebase"><img src="https://img.shields.io/badge/part%20of-DevLibrary-9cf?color=4285F4&logoColor=4285F4&logo=google&style=flat-square" /></a>
-</p>
+# @capacitor-firebase/performance
 
-## Features
-
-Capacitor Firebase is a collection of Capacitor plugins that make it easier for you to use [Firebase](https://firebase.google.com/) in your Capacitor project.[^1]
-
-- 🔋 Supports **Android, iOS and the Web**
-- ⚡️ **Capacitor 7** support
-- 🔥 **Firebase Web SDK** (modular) support
-- 🦋 Consistent versioning (no more SDK versions conflicts)
-- 👁 Unified Typescript definitions
-- 📄 Full documentation
-- ⚙️ Under active development, more plugins coming soon
-
-## Maintainers
-
-| Maintainer | GitHub                                    | Social                                        |
-| ---------- | ----------------------------------------- | --------------------------------------------- |
-| Robin Genz | [robingenz](https://github.com/robingenz) | [@robin_genz](https://twitter.com/robin_genz) |
-
-## Sponsors
-
-This is an Apache-2.0-licensed open source project.
-It can grow thanks to the support by these awesome people.
-If you'd like to join them, please read more [here](https://github.com/sponsors/capawesome-team).
-
-<p align="center">
-  <a href="https://cdn.jsdelivr.net/gh/capawesome-team/static/images/sponsors/sponsors.svg">
-    <img src="https://cdn.jsdelivr.net/gh/capawesome-team/static/images/sponsors/sponsors.svg" />
-  </a>
-</p>
+Unofficial Capacitor plugin for [Firebase Performance Monitoring](https://firebase.google.com/docs/perf-mon).[^1]
 
 ## Installation
 
-Each plugin has its own installation instructions.
-Click on the name of the desired plugin under the [`Plugins`](#plugins) section to get to the installation guide.
+```bash
+npm install @capacitor-firebase/performance firebase
+npx cap sync
+```
 
-## Plugins
+Add Firebase to your project if you haven't already ([Android](https://github.com/capawesome-team/capacitor-firebase/blob/main/docs/firebase-setup.md#android) / [iOS](https://github.com/capawesome-team/capacitor-firebase/blob/main/docs/firebase-setup.md#ios) / [Web](https://github.com/capawesome-team/capacitor-firebase/blob/main/docs/firebase-setup.md#web)).
 
-| Name                                             | Package                              | Version                                                                                                                                                             | Downloads                                                                                                                                                                |
-| ------------------------------------------------ | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [Analytics](./packages/analytics)                | `@capacitor-firebase/analytics`      | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/analytics?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/analytics)           | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/analytics?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/analytics)           |
-| [App](./packages/app)                            | `@capacitor-firebase/app`            | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/app?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/app)                       | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/app?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/app)                       |
-| [App Check](./packages/app-check)                | `@capacitor-firebase/app-check`      | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/app-check?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/app-check)           | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/app-check?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/app-check)           |
-| [Authentication](./packages/authentication)      | `@capacitor-firebase/authentication` | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/authentication?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/authentication) | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/authentication?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/authentication) |
-| [Crashlytics](./packages/crashlytics)            | `@capacitor-firebase/crashlytics`    | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/crashlytics?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/crashlytics)       | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/crashlytics?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/crashlytics)       |
-| [Cloud Firestore](./packages/firestore)          | `@capacitor-firebase/firestore`      | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/firestore?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/firestore)           | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/firestore?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/firestore)           |
-| [Cloud Functions](./packages/functions)          | `@capacitor-firebase/functions`      | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/functions?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/functions)           | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/functions?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/functions)           |
-| [Cloud Messaging](./packages/messaging)          | `@capacitor-firebase/messaging`      | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/messaging?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/messaging)           | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/messaging?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/messaging)           |
-| [Cloud Storage](./packages/storage)              | `@capacitor-firebase/storage`        | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/storage?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/storage)               | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/storage?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/storage)               |
-| [Performance Monitoring](./packages/performance) | `@capacitor-firebase/performance`    | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/performance?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/performance)       | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/performance?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/performance)       |
-| [Remote Config](./packages/remote-config)        | `@capacitor-firebase/remote-config`  | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/remote-config?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/remote-config)   | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/remote-config?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/remote-config)   |
+### Android
 
-## Changelogs
+See [Add the Performance Monitoring plugin to your app](https://firebase.google.com/docs/perf-mon/get-started-android#add-perfmon-plugin) and follow the instructions to set up your app correctly.
 
-Each plugin has its own `CHANGELOG.md` file which contains information about version changes.
-Click on the name of the desired plugin under the [`Plugins`](#plugins) section to get to the plugin folder.
+#### Variables
 
-## Breaking Changes
+This plugin will use the following project variables (defined in your app’s `variables.gradle` file):
 
-Each plugin has its own `BREAKING.md` file which contains information about breaking changes.
-Click on the name of the desired plugin under the [`Plugins`](#plugins) section to get to the plugin folder.
+- `$firebasePerfVersion` version of `com.google.firebase:firebase-perf` (default: `21.0.4`)
 
-## Contributing
+## Configuration
 
-See [CONTRIBUTING.md](./CONTRIBUTING.md).
+No configuration required for this plugin.
+
+## Demo
+
+A working example can be found here: [robingenz/capacitor-firebase-plugin-demo](https://github.com/robingenz/capacitor-firebase-plugin-demo)
+
+## Usage
+
+```typescript
+import { FirebasePerformance } from '@capacitor-firebase/performance';
+
+const startTrace = async () => {
+  await FirebasePerformance.startTrace({ traceName: 'test_trace' });
+};
+
+const stopTrace = async () => {
+  await FirebasePerformance.stopTrace({ traceName: 'test_trace' });
+};
+
+const incrementMetric = async () => {
+  await FirebasePerformance.incrementMetric({
+    traceName: 'test_trace',
+    metricName: 'item_cache_hit',
+    incrementBy: 1,
+  });
+};
+
+const setEnabled = async () => {
+  await FirebasePerformance.setEnabled({ enabled: true });
+};
+
+const isEnabled = async () => {
+  const result = await FirebasePerformance.isEnabled();
+  return result.enabled;
+};
+
+const putAttribute = async () => {
+  await FirebasePerformance.putAttribute({
+    traceName: 'test_trace',
+    attribute: 'user_id',
+    value: '123',
+  });
+};
+
+const getAttribute = async () => {
+  const result = await FirebasePerformance.getAttribute({
+    traceName: 'test_trace',
+    attribute: 'user_id',
+  });
+  return result.attributes;
+};
+
+const getAttributes = async () => {
+  const result = await FirebasePerformance.getAttributes({ traceName: 'test_trace' });
+  return result.attributes;
+};
+
+const removeAttribute = async () => {
+  await FirebasePerformance.removeAttribute({
+    traceName: 'test_trace',
+    attribute: 'user_id',
+  });
+};
+
+const putMetric = async () => {
+  await FirebasePerformance.putMetric({
+    traceName: 'test_trace',
+    metricName: 'item_cache_hit',
+    num: 1,
+  });
+};
+
+const getMetric = async () => {
+  const result = await FirebasePerformance.getMetric({
+    traceName: 'test_trace',
+    metricName: 'item_cache_hit',
+  });
+  return result.value;
+};
+
+const record = async () => {
+  await FirebasePerformance.record({
+    traceName: 'test_trace',
+    startTime: Date.now(),
+    duration: 1000,
+    options: {
+      metrics: {
+        item_cache_hit: 1,
+      },
+      attributes: {
+        user_id: '123',
+      },
+    },
+  });
+};
+```
+
+## API
+
+<docgen-index>
+
+* [`startTrace(...)`](#starttrace)
+* [`stopTrace(...)`](#stoptrace)
+* [`incrementMetric(...)`](#incrementmetric)
+* [`setEnabled(...)`](#setenabled)
+* [`isEnabled()`](#isenabled)
+* [`putAttribute(...)`](#putattribute)
+* [`getAttribute(...)`](#getattribute)
+* [`getAttributes(...)`](#getattributes)
+* [`removeAttribute(...)`](#removeattribute)
+* [`putMetric(...)`](#putmetric)
+* [`getMetric(...)`](#getmetric)
+* [`record(...)`](#record)
+* [Interfaces](#interfaces)
+* [Type Aliases](#type-aliases)
+
+</docgen-index>
+
+<docgen-api>
+<!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
+
+### startTrace(...)
+
+```typescript
+startTrace(options: StartTraceOptions) => any
+```
+
+Starts a trace.
+
+| Param         | Type                                                            |
+| ------------- | --------------------------------------------------------------- |
+| **`options`** | <code><a href="#starttraceoptions">StartTraceOptions</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 0.1.0
+
+--------------------
+
+
+### stopTrace(...)
+
+```typescript
+stopTrace(options: StopTraceOptions) => any
+```
+
+Stops a trace.
+
+| Param         | Type                                                          |
+| ------------- | ------------------------------------------------------------- |
+| **`options`** | <code><a href="#stoptraceoptions">StopTraceOptions</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 0.1.0
+
+--------------------
+
+
+### incrementMetric(...)
+
+```typescript
+incrementMetric(options: IncrementMetricOptions) => any
+```
+
+Atomically increments the metric with the given name for the selected trace by the `incrementBy` value.
+
+| Param         | Type                                                                      |
+| ------------- | ------------------------------------------------------------------------- |
+| **`options`** | <code><a href="#incrementmetricoptions">IncrementMetricOptions</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 0.1.0
+
+--------------------
+
+
+### setEnabled(...)
+
+```typescript
+setEnabled(options: SetEnabledOptions) => any
+```
+
+Enables or disables performance monitoring.
+Will be applied with the next start of the app.
+
+| Param         | Type                                                            |
+| ------------- | --------------------------------------------------------------- |
+| **`options`** | <code><a href="#setenabledoptions">SetEnabledOptions</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 0.1.0
+
+--------------------
+
+
+### isEnabled()
+
+```typescript
+isEnabled() => any
+```
+
+Determines whether performance monitoring is enabled or disabled.
+
+**Returns:** <code>any</code>
+
+**Since:** 0.1.0
+
+--------------------
+
+
+### putAttribute(...)
+
+```typescript
+putAttribute(options: PutAttributeOptions) => any
+```
+
+Sets a custom attribute of a trace to a given value.
+
+| Param         | Type                                                                |
+| ------------- | ------------------------------------------------------------------- |
+| **`options`** | <code><a href="#putattributeoptions">PutAttributeOptions</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 6.3.0
+
+--------------------
+
+
+### getAttribute(...)
+
+```typescript
+getAttribute(options: GetAttributeOptions) => any
+```
+
+Returns the value of a custom attribute of a trace.
+
+| Param         | Type                                                                |
+| ------------- | ------------------------------------------------------------------- |
+| **`options`** | <code><a href="#getattributeoptions">GetAttributeOptions</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 6.3.0
+
+--------------------
+
+
+### getAttributes(...)
+
+```typescript
+getAttributes(options: GetAttributesOptions) => any
+```
+
+Gets the all the custom attributes of a trace with their values.
+
+| Param         | Type                                                                  |
+| ------------- | --------------------------------------------------------------------- |
+| **`options`** | <code><a href="#getattributesoptions">GetAttributesOptions</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 6.3.0
+
+--------------------
+
+
+### removeAttribute(...)
+
+```typescript
+removeAttribute(options: RemoveAttributeOptions) => any
+```
+
+Removes a custom attribute from a trace given its name.
+
+| Param         | Type                                                                |
+| ------------- | ------------------------------------------------------------------- |
+| **`options`** | <code><a href="#getattributeoptions">GetAttributeOptions</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 6.3.0
+
+--------------------
+
+
+### putMetric(...)
+
+```typescript
+putMetric(options: PutMetricOptions) => any
+```
+
+Sets the value of a custom metric.
+
+| Param         | Type                                                          |
+| ------------- | ------------------------------------------------------------- |
+| **`options`** | <code><a href="#putmetricoptions">PutMetricOptions</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 6.3.0
+
+--------------------
+
+
+### getMetric(...)
+
+```typescript
+getMetric(options: GetMetricOptions) => any
+```
+
+Get the value of a custom metric by name.
+
+| Param         | Type                                                          |
+| ------------- | ------------------------------------------------------------- |
+| **`options`** | <code><a href="#getmetricoptions">GetMetricOptions</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 6.3.0
+
+--------------------
+
+
+### record(...)
+
+```typescript
+record(options: RecordOptions) => any
+```
+
+Records a trace given its name and options.
+
+Only available on web.
+
+| Param         | Type                                                    |
+| ------------- | ------------------------------------------------------- |
+| **`options`** | <code><a href="#recordoptions">RecordOptions</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 6.3.0
+
+--------------------
+
+
+### Interfaces
+
+
+#### StartTraceOptions
+
+| Prop            | Type                | Description                                                                                                                                                                                     | Since |
+| --------------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
+| **`traceName`** | <code>string</code> | Custom trace name. Names for custom code traces must meet the following requirements: no leading or trailing whitespace, no leading underscore (_) character, and max length is 100 characters. | 0.1.0 |
+
+
+#### StopTraceOptions
+
+| Prop            | Type                | Description                                       | Since |
+| --------------- | ------------------- | ------------------------------------------------- | ----- |
+| **`traceName`** | <code>string</code> | Name of the trace that was set with `startTrace`. | 0.1.0 |
+
+
+#### IncrementMetricOptions
+
+| Prop              | Type                | Description                                       | Default        | Since |
+| ----------------- | ------------------- | ------------------------------------------------- | -------------- | ----- |
+| **`traceName`**   | <code>string</code> | Name of the trace that was set with `startTrace`. |                | 0.1.0 |
+| **`metricName`**  | <code>string</code> | Name of the metric to be incremented.             |                | 0.1.0 |
+| **`incrementBy`** | <code>number</code> | Amount by which the metric has to be incremented. | <code>1</code> | 0.1.0 |
+
+
+#### SetEnabledOptions
+
+| Prop          | Type                 | Description                               | Since |
+| ------------- | -------------------- | ----------------------------------------- | ----- |
+| **`enabled`** | <code>boolean</code> | Should performance monitoring be enabled. | 0.1.0 |
+
+
+#### IsEnabledResult
+
+| Prop          | Type                 | Description                                                     | Since |
+| ------------- | -------------------- | --------------------------------------------------------------- | ----- |
+| **`enabled`** | <code>boolean</code> | `true` if performance monitoring is enabled, otherwise `false`. | 0.1.0 |
+
+
+#### PutAttributeOptions
+
+| Prop            | Type                | Description                             | Since |
+| --------------- | ------------------- | --------------------------------------- | ----- |
+| **`traceName`** | <code>string</code> | Name of the trace to set its attribute. | 6.3.0 |
+| **`attribute`** | <code>string</code> | Name of the attribute to set its value. | 6.3.0 |
+| **`value`**     | <code>string</code> | The value to set to the attribute.      | 6.3.0 |
+
+
+#### GetAttributeOptions
+
+| Prop            | Type                | Description                                  | Since |
+| --------------- | ------------------- | -------------------------------------------- | ----- |
+| **`traceName`** | <code>string</code> | Name of the trace to set its attribute.      | 6.3.0 |
+| **`attribute`** | <code>string</code> | Name of the attribute to retrieve its value. | 6.3.0 |
+
+
+#### GetAttributeResult
+
+| Prop        | Type                        | Description                        | Since |
+| ----------- | --------------------------- | ---------------------------------- | ----- |
+| **`value`** | <code>string \| null</code> | The value of the custom attribute. | 6.3.0 |
+
+
+#### GetAttributesOptions
+
+| Prop            | Type                | Description                              | Since |
+| --------------- | ------------------- | ---------------------------------------- | ----- |
+| **`traceName`** | <code>string</code> | Name of the trace to get its attributes. | 6.3.0 |
+
+
+#### GetAttributesResult
+
+| Prop             | Type                                    | Description                                                  | Since |
+| ---------------- | --------------------------------------- | ------------------------------------------------------------ | ----- |
+| **`attributes`** | <code>{ [key: string]: string; }</code> | A map of all custom attributes of a trace with their values. | 6.3.0 |
+
+
+#### PutMetricOptions
+
+| Prop             | Type                | Description                                                                              | Since |
+| ---------------- | ------------------- | ---------------------------------------------------------------------------------------- | ----- |
+| **`traceName`**  | <code>string</code> | Name of the trace to set its metric.                                                     | 6.3.0 |
+| **`metricName`** | <code>string</code> | The metric name.                                                                         | 6.3.0 |
+| **`num`**        | <code>number</code> | The value to set for the metric. The given value is floored down to the nearest integer. | 6.3.0 |
+
+
+#### GetMetricOptions
+
+| Prop             | Type                | Description                          | Since |
+| ---------------- | ------------------- | ------------------------------------ | ----- |
+| **`traceName`**  | <code>string</code> | Name of the trace to get its metric. | 6.3.0 |
+| **`metricName`** | <code>string</code> | The metric name.                     | 6.3.0 |
+
+
+#### GetMetricResult
+
+| Prop        | Type                | Description                        | Since |
+| ----------- | ------------------- | ---------------------------------- | ----- |
+| **`value`** | <code>number</code> | The value of the metric if exists. | 6.3.0 |
+
+
+#### RecordOptions
+
+| Prop            | Type                                                                                            | Description                                                                   | Since |
+| --------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----- |
+| **`traceName`** | <code>string</code>                                                                             | Name of the trace to record.                                                  | 6.3.0 |
+| **`startTime`** | <code>number</code>                                                                             | Start time of the trace since epoch in milliseconds.                          | 6.3.0 |
+| **`duration`**  | <code>number</code>                                                                             | The duration of the trace in milliseconds.                                    | 6.3.0 |
+| **`options`**   | <code>{ metrics?: { [key: string]: number; }; attributes?: { [key: string]: string; }; }</code> | An optional object that holds optional maps of custom metrics and attributes. | 6.3.0 |
+
+
+### Type Aliases
+
+
+#### RemoveAttributeOptions
+
+<code><a href="#getattributeoptions">GetAttributeOptions</a></code>
+
+</docgen-api>
+
+## Changelog
+
+See [CHANGELOG.md](https://github.com/capawesome-team/capacitor-firebase/blob/main/packages/performance/CHANGELOG.md).
 
 ## License
 
-See [LICENSE](./LICENSE).
+See [LICENSE](https://github.com/capawesome-team/capacitor-firebase/blob/main/packages/performance/LICENSE).
 
 [^1]: This project is not affiliated with, endorsed by, sponsored by, or approved by Google LLC or any of their affiliates or subsidiaries.
