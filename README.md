@@ -1,86 +1,302 @@
-<br />
-<div align="center">
-  <h1>
-    <img src="https://user-images.githubusercontent.com/13857929/161965231-b2c7f586-2ee8-4342-a71a-0532bb8b4c1f.png" alt="Capacitor Firebase" width="720" />
-  </h1>
-</div>
-<br />
-<p align="center">
-  <a href="https://github.com/capawesome-team/capacitor-firebase"><img src="https://img.shields.io/maintenance/yes/2025?style=flat-square" /></a>
-  <a href="https://github.com/capawesome-team/capacitor-firebase/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/capawesome-team/capacitor-firebase/ci.yml?branch=main&style=flat-square" /></a>
-  <a href="https://github.com/capawesome-team/capacitor-firebase"><img src="https://img.shields.io/github/license/capawesome-team/capacitor-firebase?style=flat-square" /></a>
-  <a href="https://github.com/capawesome-team"><img src="https://img.shields.io/badge/part%20of-capawesome-%234f46e5?style=flat-square" /></a>
-  <a href="https://turborepo.org/"><img src="https://img.shields.io/badge/maintained%20with-turborepo-%237f6ab2?style=flat-square" /></a>
-  <a href="https://devlibrary.withgoogle.com/products/firebase/repos/robingenz-capacitor-firebase"><img src="https://img.shields.io/badge/part%20of-DevLibrary-9cf?color=4285F4&logoColor=4285F4&logo=google&style=flat-square" /></a>
-</p>
+# @capacitor-firebase/app-check
 
-## Features
-
-Capacitor Firebase is a collection of Capacitor plugins that make it easier for you to use [Firebase](https://firebase.google.com/) in your Capacitor project.[^1]
-
-- 🔋 Supports **Android, iOS and the Web**
-- ⚡️ **Capacitor 7** support
-- 🔥 **Firebase Web SDK** (modular) support
-- 🦋 Consistent versioning (no more SDK versions conflicts)
-- 👁 Unified Typescript definitions
-- 📄 Full documentation
-- ⚙️ Under active development, more plugins coming soon
-
-## Maintainers
-
-| Maintainer | GitHub                                    | Social                                        |
-| ---------- | ----------------------------------------- | --------------------------------------------- |
-| Robin Genz | [robingenz](https://github.com/robingenz) | [@robin_genz](https://twitter.com/robin_genz) |
-
-## Sponsors
-
-This is an Apache-2.0-licensed open source project.
-It can grow thanks to the support by these awesome people.
-If you'd like to join them, please read more [here](https://github.com/sponsors/capawesome-team).
-
-<p align="center">
-  <a href="https://cdn.jsdelivr.net/gh/capawesome-team/static/images/sponsors/sponsors.svg">
-    <img src="https://cdn.jsdelivr.net/gh/capawesome-team/static/images/sponsors/sponsors.svg" />
-  </a>
-</p>
+Unofficial Capacitor plugin for [Firebase App Check](https://firebase.google.com/docs/app-check).[^1]
 
 ## Installation
 
-Each plugin has its own installation instructions.
-Click on the name of the desired plugin under the [`Plugins`](#plugins) section to get to the installation guide.
+```bash
+npm install @capacitor-firebase/app-check firebase
+npx cap sync
+```
 
-## Plugins
+Add Firebase to your project if you haven't already ([Android](https://github.com/capawesome-team/capacitor-firebase/blob/main/docs/firebase-setup.md#android) / [iOS](https://github.com/capawesome-team/capacitor-firebase/blob/main/docs/firebase-setup.md#ios) / [Web](https://github.com/capawesome-team/capacitor-firebase/blob/main/docs/firebase-setup.md#web)).
 
-| Name                                             | Package                              | Version                                                                                                                                                             | Downloads                                                                                                                                                                |
-| ------------------------------------------------ | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [Analytics](./packages/analytics)                | `@capacitor-firebase/analytics`      | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/analytics?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/analytics)           | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/analytics?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/analytics)           |
-| [App](./packages/app)                            | `@capacitor-firebase/app`            | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/app?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/app)                       | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/app?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/app)                       |
-| [App Check](./packages/app-check)                | `@capacitor-firebase/app-check`      | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/app-check?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/app-check)           | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/app-check?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/app-check)           |
-| [Authentication](./packages/authentication)      | `@capacitor-firebase/authentication` | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/authentication?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/authentication) | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/authentication?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/authentication) |
-| [Crashlytics](./packages/crashlytics)            | `@capacitor-firebase/crashlytics`    | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/crashlytics?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/crashlytics)       | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/crashlytics?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/crashlytics)       |
-| [Cloud Firestore](./packages/firestore)          | `@capacitor-firebase/firestore`      | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/firestore?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/firestore)           | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/firestore?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/firestore)           |
-| [Cloud Functions](./packages/functions)          | `@capacitor-firebase/functions`      | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/functions?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/functions)           | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/functions?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/functions)           |
-| [Cloud Messaging](./packages/messaging)          | `@capacitor-firebase/messaging`      | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/messaging?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/messaging)           | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/messaging?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/messaging)           |
-| [Cloud Storage](./packages/storage)              | `@capacitor-firebase/storage`        | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/storage?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/storage)               | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/storage?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/storage)               |
-| [Performance Monitoring](./packages/performance) | `@capacitor-firebase/performance`    | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/performance?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/performance)       | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/performance?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/performance)       |
-| [Remote Config](./packages/remote-config)        | `@capacitor-firebase/remote-config`  | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/remote-config?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/remote-config)   | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/remote-config?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/remote-config)   |
+### Android
 
-## Changelogs
+See [Set up your Firebase project](https://firebase.google.com/docs/app-check/android/play-integrity-provider#project-setup) and follow the instructions to set up your app correctly.
 
-Each plugin has its own `CHANGELOG.md` file which contains information about version changes.
-Click on the name of the desired plugin under the [`Plugins`](#plugins) section to get to the plugin folder.
+#### Variables
 
-## Breaking Changes
+This plugin will use the following project variables (defined in your app’s `variables.gradle` file):
 
-Each plugin has its own `BREAKING.md` file which contains information about breaking changes.
-Click on the name of the desired plugin under the [`Plugins`](#plugins) section to get to the plugin folder.
+- `$firebaseAppCheckPlayIntegrityVersion` version of `com.google.firebase:firebase-appcheck-playintegrity` (default: `18.0.0`)
+- `$firebaseAppCheckDebugVersion` version of `com.google.firebase:firebase-appcheck-debug` (default: `18.0.0`)
 
-## Contributing
+### iOS
 
-See [CONTRIBUTING.md](./CONTRIBUTING.md).
+On **iOS 14 and later**, see [Set up your Firebase project](https://firebase.google.com/docs/app-check/ios/app-attest-provider#project-setup) and follow the instructions to set up your app correctly.
+
+On **iOS 13**, see [Set up your Firebase project](https://firebase.google.com/docs/app-check/ios/devicecheck-provider#project-setup) and follow the instructions to set up your app correctly.
+
+Make sure that the private key (\*.p8) you upload to Firebase has `DeviceCheck` selected as a service.
+
+### Web
+
+See [Set up your Firebase project](https://firebase.google.com/docs/app-check/web/recaptcha-provider#project-setup) and follow the instructions to set up your app correctly.
+
+## Configuration
+
+No configuration required for this plugin.
+
+## Firebase JavaScript SDK
+
+[Here](https://github.com/capawesome-team/capacitor-firebase/blob/main/packages/app-check/docs/firebase-js-sdk.md) you can find information on how to use the plugin with the Firebase JS SDK.
+
+## Demo
+
+A working example can be found here: [robingenz/capacitor-firebase-plugin-demo](https://github.com/robingenz/capacitor-firebase-plugin-demo)
+
+## Usage
+
+```typescript
+import { FirebaseAppCheck } from '@capacitor-firebase/app-check';
+import { ReCaptchaV3Provider } from '@capacitor-firebase/app-check';
+import { Capacitor } from '@capacitor/core';
+
+const initialize = async () => {
+  await FirebaseAppCheck.initialize({
+    provider: Capacitor.getPlatform() === 'web' ? new ReCaptchaV3Provider('myKey') : undefined,
+  });
+};
+
+const getToken = async () => {
+  const { token } = FirebaseAppCheck.getToken({
+    forceRefresh: false,
+  });
+  return token;
+};
+
+const setTokenAutoRefreshEnabled = async () => {
+  await FirebaseAppCheck.setTokenAutoRefreshEnabled({ enabled: true });
+};
+
+const addTokenChangedListener = async () => {
+  await FirebaseAppCheck.addListener('tokenChanged', event => {
+    console.log('tokenChanged', { event });
+  });
+};
+
+const removeAllListeners = async () => {
+  await FirebaseAppCheck.removeAllListeners();
+};
+```
+
+## API
+
+<docgen-index>
+
+* [`getToken(...)`](#gettoken)
+* [`initialize(...)`](#initialize)
+* [`setTokenAutoRefreshEnabled(...)`](#settokenautorefreshenabled)
+* [`addListener('tokenChanged', ...)`](#addlistenertokenchanged-)
+* [`removeAllListeners()`](#removealllisteners)
+* [Interfaces](#interfaces)
+* [Type Aliases](#type-aliases)
+
+</docgen-index>
+
+<docgen-api>
+<!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
+
+### getToken(...)
+
+```typescript
+getToken(options?: GetTokenOptions | undefined) => any
+```
+
+Get the current App Check token.
+
+| Param         | Type                                                        |
+| ------------- | ----------------------------------------------------------- |
+| **`options`** | <code><a href="#gettokenoptions">GetTokenOptions</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 1.3.0
+
+--------------------
+
+
+### initialize(...)
+
+```typescript
+initialize(options?: InitializeOptions | undefined) => any
+```
+
+Activate App Check for the given app.
+Can be called only once per app.
+
+| Param         | Type                                                            |
+| ------------- | --------------------------------------------------------------- |
+| **`options`** | <code><a href="#initializeoptions">InitializeOptions</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 1.3.0
+
+--------------------
+
+
+### setTokenAutoRefreshEnabled(...)
+
+```typescript
+setTokenAutoRefreshEnabled(options: SetTokenAutoRefreshEnabledOptions) => any
+```
+
+Set whether the App Check token should be refreshed automatically or not.
+
+| Param         | Type                                                                                            |
+| ------------- | ----------------------------------------------------------------------------------------------- |
+| **`options`** | <code><a href="#settokenautorefreshenabledoptions">SetTokenAutoRefreshEnabledOptions</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 1.3.0
+
+--------------------
+
+
+### addListener('tokenChanged', ...)
+
+```typescript
+addListener(eventName: 'tokenChanged', listenerFunc: TokenChangedListener) => any
+```
+
+Called when the App Check token changed.
+
+Only available for Web.
+
+| Param              | Type                                                                  |
+| ------------------ | --------------------------------------------------------------------- |
+| **`eventName`**    | <code>'tokenChanged'</code>                                           |
+| **`listenerFunc`** | <code><a href="#tokenchangedlistener">TokenChangedListener</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 1.3.0
+
+--------------------
+
+
+### removeAllListeners()
+
+```typescript
+removeAllListeners() => any
+```
+
+Remove all listeners for this plugin.
+
+Only available for Web.
+
+**Returns:** <code>any</code>
+
+**Since:** 1.3.0
+
+--------------------
+
+
+### Interfaces
+
+
+#### GetTokenOptions
+
+| Prop               | Type                 | Description                                                                                                 | Default            | Since |
+| ------------------ | -------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------ | ----- |
+| **`forceRefresh`** | <code>boolean</code> | If `true`, will always try to fetch a fresh token. If `false`, will use a cached token if found in storage. | <code>false</code> | 1.3.0 |
+
+
+#### GetTokenResult
+
+| Prop                   | Type                | Description                                                                                                      | Since |
+| ---------------------- | ------------------- | ---------------------------------------------------------------------------------------------------------------- | ----- |
+| **`token`**            | <code>string</code> | The App Check token in JWT format.                                                                               | 1.3.0 |
+| **`expireTimeMillis`** | <code>number</code> | The timestamp after which the token will expire in milliseconds since epoch. Only available for Android and iOS. | 1.3.0 |
+
+
+#### InitializeOptions
+
+| Prop                            | Type                           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                         | Default                          | Since |
+| ------------------------------- | ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- | ----- |
+| **`debug`**                     | <code>boolean</code>           | If `true`, the debug provider is used. ⚠️ **Attention**: The debug provider allows access to your Firebase resources from unverified devices. Don't use the debug provider in production builds of your app, and don't share your debug builds with untrusted parties. ⚠️ **Deprecated**: Use `debugToken` instead. This option will be removed in the next major version. Read more: https://firebase.google.com/docs/app-check/web/debug-provider | <code>false</code>               | 1.3.0 |
+| **`debugToken`**                | <code>string \| boolean</code> | If `true`, the debug provider is used. On **Web**, you can also set a predefined debug token string instead of `true`. On Android and iOS, you have to use environment variables for this. ⚠️ **Attention**: The debug provider allows access to your Firebase resources from unverified devices. Don't use the debug provider in production builds of your app, and don't share your debug builds with untrusted parties.                          | <code>false</code>               | 7.1.0 |
+| **`isTokenAutoRefreshEnabled`** | <code>boolean</code>           | If `true`, the SDK automatically refreshes App Check tokens as needed.                                                                                                                                                                                                                                                                                                                                                                              | <code>false</code>               | 1.3.0 |
+| **`provider`**                  | <code>any</code>               | The provider to use for App Check. Must be an instance of `ReCaptchaV3Provider`, `ReCaptchaEnterpriseProvider`, or `CustomProvider`. Only available for Web.                                                                                                                                                                                                                                                                                        | <code>ReCaptchaV3Provider</code> | 7.1.0 |
+| **`siteKey`**                   | <code>string</code>            | The reCAPTCHA v3 site key (public key). This option is ignored when `provider` is set. Only available for Web.                                                                                                                                                                                                                                                                                                                                      |                                  | 1.3.0 |
+
+
+#### InstanceFactoryOptions
+
+| Prop                     | Type                |
+| ------------------------ | ------------------- |
+| **`instanceIdentifier`** | <code>string</code> |
+| **`options`**            | <code>{}</code>     |
+
+
+#### SetTokenAutoRefreshEnabledOptions
+
+| Prop          | Type                 | Description                                                                                                                      | Since |
+| ------------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ----- |
+| **`enabled`** | <code>boolean</code> | If `true`, the SDK automatically refreshes App Check tokens as needed. This overrides any value set during initializeAppCheck(). | 1.3.0 |
+
+
+#### TokenChangedEvent
+
+| Prop        | Type                | Description                        | Since |
+| ----------- | ------------------- | ---------------------------------- | ----- |
+| **`token`** | <code>string</code> | The App Check token in JWT format. | 1.3.0 |
+
+
+#### PluginListenerHandle
+
+| Prop         | Type                      |
+| ------------ | ------------------------- |
+| **`remove`** | <code>() =&gt; any</code> |
+
+
+### Type Aliases
+
+
+#### InitializeOptions
+
+<code><a href="#instancefactoryoptions">InstanceFactoryOptions</a></code>
+
+
+#### TokenChangedListener
+
+Callback to receive the token change event.
+
+<code>(event: <a href="#tokenchangedevent">TokenChangedEvent</a>): void</code>
+
+</docgen-api>
+
+## Testing
+
+### Android
+
+Follow these steps to test your implementation on a real device:
+
+1. Start your app on the Android device.
+1. Run the following command to grab your temporary secret from the android logs:
+
+```
+adb logcat | grep DebugAppCheckProvider
+```
+
+The output should look like this:
+
+```
+D DebugAppCheckProvider: Enter this debug secret into the allow list in
+the Firebase Console for your project: XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+```
+
+1. Next, open the [App Check project](https://console.firebase.google.com/u/0/project/_/appcheck/apps) in the Firebase Console and select Manage debug tokens from the overflow menu of your app. Then, register the debug secret from the output.
+
+## Changelog
+
+See [CHANGELOG.md](https://github.com/capawesome-team/capacitor-firebase/blob/main/packages/app-check/CHANGELOG.md).
 
 ## License
 
-See [LICENSE](./LICENSE).
+See [LICENSE](https://github.com/capawesome-team/capacitor-firebase/blob/main/packages/app-check/LICENSE).
 
 [^1]: This project is not affiliated with, endorsed by, sponsored by, or approved by Google LLC or any of their affiliates or subsidiaries.
