@@ -1,86 +1,785 @@
-<br />
-<div align="center">
-  <h1>
-    <img src="https://user-images.githubusercontent.com/13857929/161965231-b2c7f586-2ee8-4342-a71a-0532bb8b4c1f.png" alt="Capacitor Firebase" width="720" />
-  </h1>
-</div>
-<br />
-<p align="center">
-  <a href="https://github.com/capawesome-team/capacitor-firebase"><img src="https://img.shields.io/maintenance/yes/2025?style=flat-square" /></a>
-  <a href="https://github.com/capawesome-team/capacitor-firebase/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/capawesome-team/capacitor-firebase/ci.yml?branch=main&style=flat-square" /></a>
-  <a href="https://github.com/capawesome-team/capacitor-firebase"><img src="https://img.shields.io/github/license/capawesome-team/capacitor-firebase?style=flat-square" /></a>
-  <a href="https://github.com/capawesome-team"><img src="https://img.shields.io/badge/part%20of-capawesome-%234f46e5?style=flat-square" /></a>
-  <a href="https://turborepo.org/"><img src="https://img.shields.io/badge/maintained%20with-turborepo-%237f6ab2?style=flat-square" /></a>
-  <a href="https://devlibrary.withgoogle.com/products/firebase/repos/robingenz-capacitor-firebase"><img src="https://img.shields.io/badge/part%20of-DevLibrary-9cf?color=4285F4&logoColor=4285F4&logo=google&style=flat-square" /></a>
-</p>
+# @capacitor-firebase/messaging
 
-## Features
+Unofficial Capacitor plugin for [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging).[^1]
 
-Capacitor Firebase is a collection of Capacitor plugins that make it easier for you to use [Firebase](https://firebase.google.com/) in your Capacitor project.[^1]
+## Guides
 
-- 🔋 Supports **Android, iOS and the Web**
-- ⚡️ **Capacitor 7** support
-- 🔥 **Firebase Web SDK** (modular) support
-- 🦋 Consistent versioning (no more SDK versions conflicts)
-- 👁 Unified Typescript definitions
-- 📄 Full documentation
-- ⚙️ Under active development, more plugins coming soon
-
-## Maintainers
-
-| Maintainer | GitHub                                    | Social                                        |
-| ---------- | ----------------------------------------- | --------------------------------------------- |
-| Robin Genz | [robingenz](https://github.com/robingenz) | [@robin_genz](https://twitter.com/robin_genz) |
-
-## Sponsors
-
-This is an Apache-2.0-licensed open source project.
-It can grow thanks to the support by these awesome people.
-If you'd like to join them, please read more [here](https://github.com/sponsors/capawesome-team).
-
-<p align="center">
-  <a href="https://cdn.jsdelivr.net/gh/capawesome-team/static/images/sponsors/sponsors.svg">
-    <img src="https://cdn.jsdelivr.net/gh/capawesome-team/static/images/sponsors/sponsors.svg" />
-  </a>
-</p>
+- [The Push Notifications Guide for Capacitor](https://capawesome.io/blog/the-push-notifications-guide-for-capacitor/)
 
 ## Installation
 
-Each plugin has its own installation instructions.
-Click on the name of the desired plugin under the [`Plugins`](#plugins) section to get to the installation guide.
+```bash
+npm install @capacitor-firebase/messaging firebase
+npx cap sync
+```
 
-## Plugins
+Add Firebase to your project if you haven't already ([Android](https://github.com/capawesome-team/capacitor-firebase/blob/main/docs/firebase-setup.md#android) / [iOS](https://github.com/capawesome-team/capacitor-firebase/blob/main/docs/firebase-setup.md#ios) / [Web](https://github.com/capawesome-team/capacitor-firebase/blob/main/docs/firebase-setup.md#web)).
 
-| Name                                             | Package                              | Version                                                                                                                                                             | Downloads                                                                                                                                                                |
-| ------------------------------------------------ | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [Analytics](./packages/analytics)                | `@capacitor-firebase/analytics`      | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/analytics?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/analytics)           | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/analytics?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/analytics)           |
-| [App](./packages/app)                            | `@capacitor-firebase/app`            | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/app?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/app)                       | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/app?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/app)                       |
-| [App Check](./packages/app-check)                | `@capacitor-firebase/app-check`      | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/app-check?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/app-check)           | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/app-check?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/app-check)           |
-| [Authentication](./packages/authentication)      | `@capacitor-firebase/authentication` | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/authentication?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/authentication) | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/authentication?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/authentication) |
-| [Crashlytics](./packages/crashlytics)            | `@capacitor-firebase/crashlytics`    | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/crashlytics?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/crashlytics)       | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/crashlytics?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/crashlytics)       |
-| [Cloud Firestore](./packages/firestore)          | `@capacitor-firebase/firestore`      | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/firestore?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/firestore)           | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/firestore?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/firestore)           |
-| [Cloud Functions](./packages/functions)          | `@capacitor-firebase/functions`      | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/functions?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/functions)           | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/functions?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/functions)           |
-| [Cloud Messaging](./packages/messaging)          | `@capacitor-firebase/messaging`      | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/messaging?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/messaging)           | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/messaging?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/messaging)           |
-| [Cloud Storage](./packages/storage)              | `@capacitor-firebase/storage`        | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/storage?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/storage)               | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/storage?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/storage)               |
-| [Performance Monitoring](./packages/performance) | `@capacitor-firebase/performance`    | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/performance?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/performance)       | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/performance?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/performance)       |
-| [Remote Config](./packages/remote-config)        | `@capacitor-firebase/remote-config`  | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/remote-config?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/remote-config)   | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/remote-config?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/remote-config)   |
+### Android
 
-## Changelogs
+#### Variables
 
-Each plugin has its own `CHANGELOG.md` file which contains information about version changes.
-Click on the name of the desired plugin under the [`Plugins`](#plugins) section to get to the plugin folder.
+This plugin will use the following project variables (defined in your app’s `variables.gradle` file):
 
-## Breaking Changes
+- `$firebaseMessagingVersion` version of `com.google.firebase:firebase-messaging` (default: `24.1.0`)
 
-Each plugin has its own `BREAKING.md` file which contains information about breaking changes.
-Click on the name of the desired plugin under the [`Plugins`](#plugins) section to get to the plugin folder.
+#### Push Notification Icon
 
-## Contributing
+The Push Notification icon with the appropriate name should be added to the `android/app/src/main/AndroidManifest.xml` file:
 
-See [CONTRIBUTING.md](./CONTRIBUTING.md).
+```xml
+<meta-data android:name="com.google.firebase.messaging.default_notification_icon" android:resource="@mipmap/push_icon_name" />
+```
+
+If no icon is specified, Android uses the application icon, but the push icon should be white pixels on a transparent background. Since the application icon does not usually look like this, it shows a white square or circle. Therefore, it is recommended to provide a separate icon for push notifications.
+
+#### Prevent auto initialization
+
+When a registration token is generated, the library uploads the identifier and configuration data to Firebase.
+If you prefer to prevent token autogeneration, disable Analytics collection and FCM auto initialization by adding these metadata values to the `android/app/src/main/AndroidManifest.xml` file:
+
+```xml
+<meta-data
+    android:name="firebase_messaging_auto_init_enabled"
+    android:value="false" />
+<meta-data
+    android:name="firebase_analytics_collection_enabled"
+    android:value="false" />
+```
+
+### iOS
+
+> **Important**: Make sure that no other Capacitor Push Notification plugin is installed (see [here](https://github.com/capawesome-team/capacitor-firebase/pull/267#issuecomment-1328885820)).
+
+See [Prerequisites](https://capacitorjs.com/docs/guides/push-notifications-firebase#prerequisites) and complete the prerequisites first.
+
+See [Upload the APNS Certificate or Key to Firebase](https://capacitorjs.com/docs/guides/push-notifications-firebase#upload-the-apns-certificate-or-key-to-firebase) and follow the instructions to upload the APNS Certificate or APNS Auth Key to Firebase.
+
+> If you have difficulties with the instructions, you can also look at the corresponding sections of [this guide](https://capawesome.io/blog/the-push-notifications-guide-for-capacitor/#ios).
+
+Add the following to your app's `AppDelegate.swift`:
+
+```swift
+func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+  NotificationCenter.default.post(name: .capacitorDidRegisterForRemoteNotifications, object: deviceToken)
+}
+
+func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+  NotificationCenter.default.post(name: .capacitorDidFailToRegisterForRemoteNotifications, object: error)
+}
+
+func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+    NotificationCenter.default.post(name: Notification.Name.init("didReceiveRemoteNotification"), object: completionHandler, userInfo: userInfo)
+}
+```
+
+**Attention**: If you use this plugin in combination with `@capacitor-firebase/authentication`, then add the following to your app's `AppDelegate.swift`:
+
+```diff
++ import FirebaseAuth
+
+func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
++    if Auth.auth().canHandle(url) {
++      return true
++    }
+    return ApplicationDelegateProxy.shared.application(app, open: url, options: options)
+}
+```
+
+#### Prevent auto initialization
+
+When a registration token is generated, the library uploads the identifier and configuration data to Firebase.
+If you prefer to prevent token autogeneration, disable FCM auto initialization by editing your `ios/App/App/Info.plist` and set `FirebaseMessagingAutoInitEnabled` key to `NO`.
+
+### Web
+
+1. See [Configure Web Credentials with FCM](https://firebase.google.com/docs/cloud-messaging/js/client#configure_web_credentials_with) and follow the instructions to configure your web credentials correctly.
+1. Add a `firebase-messaging-sw.js` file to the root of your domain. This file can be empty if you do not want to receive push notifications in the background.
+   See [Setting notification options in the service worker](https://firebase.google.com/docs/cloud-messaging/js/receive#setting_notification_options_in_the_service_worker) for more information.
+
+## Configuration
+
+<docgen-config>
+<!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
+
+On iOS you can configure the way the push notifications are displayed when the app is in foreground.
+
+| Prop                      | Type            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Default                                  | Since |
+| ------------------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------- | ----- |
+| **`presentationOptions`** | <code>{}</code> | This is an array of strings you can combine. Possible values in the array are: - `badge`: badge count on the app icon is updated (default value) - `sound`: the device will ring/vibrate when the push notification is received - `alert`: the push notification is displayed in a native dialog - `criticalAlert`: the push notification is displayed in a native dialog and bypasses the mute switch An empty array can be provided if none of the options are desired. Only available for iOS. | <code>["alert", "badge", "sound"]</code> | 0.2.2 |
+
+### Examples
+
+In `capacitor.config.json`:
+
+```json
+{
+  "plugins": {
+    "FirebaseMessaging": {
+      "presentationOptions": ["alert", "badge", "sound"]
+    }
+  }
+}
+```
+
+In `capacitor.config.ts`:
+
+```ts
+/// <reference types="@capacitor-firebase/messaging" />
+
+import { CapacitorConfig } from '@capacitor/cli';
+
+const config: CapacitorConfig = {
+  plugins: {
+    FirebaseMessaging: {
+      presentationOptions: ["alert", "badge", "sound"],
+    },
+  },
+};
+
+export default config;
+```
+
+</docgen-config>
+
+## Demo
+
+A working example can be found here: [robingenz/capacitor-firebase-plugin-demo](https://github.com/robingenz/capacitor-firebase-plugin-demo)
+
+## Starter templates
+
+The following starter templates are available:
+
+- [Ionstarter Angular Firebase](https://ionstarter.dev/)
+
+## Usage
+
+```typescript
+import { FirebaseMessaging } from '@capacitor-firebase/messaging';
+
+const checkPermissions = async () => {
+  const result = await FirebaseMessaging.checkPermissions();
+  return result.receive;
+};
+
+const requestPermissions = async () => {
+  const result = await FirebaseMessaging.requestPermissions();
+  return result.receive;
+};
+
+const getToken = async () => {
+  const result = await FirebaseMessaging.getToken();
+  return result.token;
+};
+
+const deleteToken = async () => {
+  await FirebaseMessaging.deleteToken();
+};
+
+const getDeliveredNotifications = async () => {
+  const result = await FirebaseMessaging.getDeliveredNotifications();
+  return result.notifications;
+};
+
+const removeDeliveredNotifications = async () => {
+  await FirebaseMessaging.removeDeliveredNotifications({
+    notifications: [
+      {
+        id: '798dfhliblqew89pzads',
+      },
+    ],
+  });
+};
+
+const removeAllDeliveredNotifications = async () => {
+  await FirebaseMessaging.removeAllDeliveredNotifications();
+};
+
+const subscribeToTopic = async () => {
+  await FirebaseMessaging.subscribeToTopic({ topic: 'news' });
+};
+
+const unsubscribeFromTopic = async () => {
+  await FirebaseMessaging.unsubscribeFromTopic({ topic: 'news' });
+};
+
+const addTokenReceivedListener = async () => {
+  await FirebaseMessaging.addListener('tokenReceived', event => {
+    console.log('tokenReceived', { event });
+  });
+};
+
+const addNotificationReceivedListener = async () => {
+  await FirebaseMessaging.addListener('notificationReceived', event => {
+    console.log('notificationReceived', { event });
+  });
+};
+
+const addNotificationActionPerformedListener = async () => {
+  await FirebaseMessaging.addListener('notificationActionPerformed', event => {
+    console.log('notificationActionPerformed', { event });
+  });
+};
+
+const removeAllListeners = async () => {
+  await FirebaseMessaging.removeAllListeners();
+};
+```
+
+## API
+
+<docgen-index>
+
+* [`checkPermissions()`](#checkpermissions)
+* [`requestPermissions()`](#requestpermissions)
+* [`isSupported()`](#issupported)
+* [`getToken(...)`](#gettoken)
+* [`deleteToken()`](#deletetoken)
+* [`getDeliveredNotifications()`](#getdeliverednotifications)
+* [`removeDeliveredNotifications(...)`](#removedeliverednotifications)
+* [`removeAllDeliveredNotifications()`](#removealldeliverednotifications)
+* [`subscribeToTopic(...)`](#subscribetotopic)
+* [`unsubscribeFromTopic(...)`](#unsubscribefromtopic)
+* [`createChannel(...)`](#createchannel)
+* [`deleteChannel(...)`](#deletechannel)
+* [`listChannels()`](#listchannels)
+* [`addListener('tokenReceived', ...)`](#addlistenertokenreceived-)
+* [`addListener('notificationReceived', ...)`](#addlistenernotificationreceived-)
+* [`addListener('notificationActionPerformed', ...)`](#addlistenernotificationactionperformed-)
+* [`removeAllListeners()`](#removealllisteners)
+* [Interfaces](#interfaces)
+* [Type Aliases](#type-aliases)
+* [Enums](#enums)
+
+</docgen-index>
+
+<docgen-api>
+<!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
+
+### checkPermissions()
+
+```typescript
+checkPermissions() => any
+```
+
+Check permission to receive push notifications.
+
+On **Android**, this method only needs to be called on Android 13+.
+
+**Returns:** <code>any</code>
+
+**Since:** 0.2.2
+
+--------------------
+
+
+### requestPermissions()
+
+```typescript
+requestPermissions() => any
+```
+
+Request permission to receive push notifications.
+
+On **Android**, this method only needs to be called on Android 13+.
+
+**Returns:** <code>any</code>
+
+**Since:** 0.2.2
+
+--------------------
+
+
+### isSupported()
+
+```typescript
+isSupported() => any
+```
+
+Checks if all required APIs exist.
+
+Always returns `true` on Android and iOS.
+
+**Returns:** <code>any</code>
+
+**Since:** 0.3.1
+
+--------------------
+
+
+### getToken(...)
+
+```typescript
+getToken(options?: GetTokenOptions | undefined) => any
+```
+
+Register the app to receive push notifications.
+Returns a FCM token that can be used to send push messages to that Messaging instance.
+
+This method also re-enables FCM auto-init.
+
+| Param         | Type                                                        |
+| ------------- | ----------------------------------------------------------- |
+| **`options`** | <code><a href="#gettokenoptions">GetTokenOptions</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 0.2.2
+
+--------------------
+
+
+### deleteToken()
+
+```typescript
+deleteToken() => any
+```
+
+Delete the FCM token and unregister the app to stop receiving push notifications.
+Can be called, for example, when a user signs out.
+
+**Returns:** <code>any</code>
+
+**Since:** 0.2.2
+
+--------------------
+
+
+### getDeliveredNotifications()
+
+```typescript
+getDeliveredNotifications() => any
+```
+
+Get a list of notifications that are visible on the notifications screen.
+
+**Returns:** <code>any</code>
+
+**Since:** 0.2.2
+
+--------------------
+
+
+### removeDeliveredNotifications(...)
+
+```typescript
+removeDeliveredNotifications(options: RemoveDeliveredNotificationsOptions) => any
+```
+
+Remove specific notifications from the notifications screen.
+
+| Param         | Type                                                                                                |
+| ------------- | --------------------------------------------------------------------------------------------------- |
+| **`options`** | <code><a href="#removedeliverednotificationsoptions">RemoveDeliveredNotificationsOptions</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 0.2.2
+
+--------------------
+
+
+### removeAllDeliveredNotifications()
+
+```typescript
+removeAllDeliveredNotifications() => any
+```
+
+Remove all notifications from the notifications screen.
+
+**Returns:** <code>any</code>
+
+**Since:** 0.2.2
+
+--------------------
+
+
+### subscribeToTopic(...)
+
+```typescript
+subscribeToTopic(options: SubscribeToTopicOptions) => any
+```
+
+Subscribes to topic in the background.
+
+Only available for Android and iOS.
+
+| Param         | Type                                                                        |
+| ------------- | --------------------------------------------------------------------------- |
+| **`options`** | <code><a href="#subscribetotopicoptions">SubscribeToTopicOptions</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 0.2.2
+
+--------------------
+
+
+### unsubscribeFromTopic(...)
+
+```typescript
+unsubscribeFromTopic(options: UnsubscribeFromTopicOptions) => any
+```
+
+Unsubscribes from topic in the background.
+
+Only available for Android and iOS.
+
+| Param         | Type                                                                                |
+| ------------- | ----------------------------------------------------------------------------------- |
+| **`options`** | <code><a href="#unsubscribefromtopicoptions">UnsubscribeFromTopicOptions</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 0.2.2
+
+--------------------
+
+
+### createChannel(...)
+
+```typescript
+createChannel(options: CreateChannelOptions) => any
+```
+
+Create a notification channel.
+
+Only available for Android (SDK 26+).
+
+| Param         | Type                                        |
+| ------------- | ------------------------------------------- |
+| **`options`** | <code><a href="#channel">Channel</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 1.4.0
+
+--------------------
+
+
+### deleteChannel(...)
+
+```typescript
+deleteChannel(options: DeleteChannelOptions) => any
+```
+
+Delete a notification channel.
+
+Only available for Android (SDK 26+).
+
+| Param         | Type                                                                  |
+| ------------- | --------------------------------------------------------------------- |
+| **`options`** | <code><a href="#deletechanneloptions">DeleteChannelOptions</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 1.4.0
+
+--------------------
+
+
+### listChannels()
+
+```typescript
+listChannels() => any
+```
+
+List the available notification channels.
+
+Only available for Android (SDK 26+).
+
+**Returns:** <code>any</code>
+
+**Since:** 1.4.0
+
+--------------------
+
+
+### addListener('tokenReceived', ...)
+
+```typescript
+addListener(eventName: 'tokenReceived', listenerFunc: TokenReceivedListener) => any
+```
+
+Called when a new FCM token is received.
+
+Only available for Android and iOS.
+
+| Param              | Type                                                                    |
+| ------------------ | ----------------------------------------------------------------------- |
+| **`eventName`**    | <code>'tokenReceived'</code>                                            |
+| **`listenerFunc`** | <code><a href="#tokenreceivedlistener">TokenReceivedListener</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 0.2.2
+
+--------------------
+
+
+### addListener('notificationReceived', ...)
+
+```typescript
+addListener(eventName: 'notificationReceived', listenerFunc: NotificationReceivedListener) => any
+```
+
+Called when a new push notification is received.
+
+On **Android**, this listener is called for every push notification if the app is in the _foreground_.
+If the app is in the _background_, then this listener is only called on data push notifications.
+See https://firebase.google.com/docs/cloud-messaging/android/receive#handling_messages for more information.
+
+On **iOS**, this listener is called for every push notification if the app is in the _foreground_.
+If the app is in the _background_, then this listener is only called for silent push notifications (messages with the `content-available` key).
+See https://developer.apple.com/library/archive/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/PayloadKeyReference.html for more information.
+
+| Param              | Type                                                                                  |
+| ------------------ | ------------------------------------------------------------------------------------- |
+| **`eventName`**    | <code>'notificationReceived'</code>                                                   |
+| **`listenerFunc`** | <code><a href="#notificationreceivedlistener">NotificationReceivedListener</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 0.2.2
+
+--------------------
+
+
+### addListener('notificationActionPerformed', ...)
+
+```typescript
+addListener(eventName: 'notificationActionPerformed', listenerFunc: NotificationActionPerformedListener) => any
+```
+
+Called when a new push notification action is performed.
+
+Only available for Android and iOS.
+
+| Param              | Type                                                                                                |
+| ------------------ | --------------------------------------------------------------------------------------------------- |
+| **`eventName`**    | <code>'notificationActionPerformed'</code>                                                          |
+| **`listenerFunc`** | <code><a href="#notificationactionperformedlistener">NotificationActionPerformedListener</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 0.2.2
+
+--------------------
+
+
+### removeAllListeners()
+
+```typescript
+removeAllListeners() => any
+```
+
+Remove all listeners for this plugin.
+
+**Returns:** <code>any</code>
+
+**Since:** 0.2.2
+
+--------------------
+
+
+### Interfaces
+
+
+#### PermissionStatus
+
+| Prop          | Type                                                        | Since |
+| ------------- | ----------------------------------------------------------- | ----- |
+| **`receive`** | <code><a href="#permissionstate">PermissionState</a></code> | 0.2.2 |
+
+
+#### IsSupportedResult
+
+| Prop              | Type                 | Since |
+| ----------------- | -------------------- | ----- |
+| **`isSupported`** | <code>boolean</code> | 0.3.1 |
+
+
+#### GetTokenOptions
+
+| Prop                            | Type                                   | Description                                                                                                                                                                                                |
+| ------------------------------- | -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`vapidKey`**                  | <code>string</code>                    | Your VAPID public key, which is required to retrieve the current registration token on the web. Only available for Web.                                                                                    |
+| **`serviceWorkerRegistration`** | <code>ServiceWorkerRegistration</code> | The service worker registration for receiving push messaging. If the registration is not provided explicitly, you need to have a `firebase-messaging-sw.js` at your root location. Only available for Web. |
+
+
+#### GetTokenResult
+
+| Prop        | Type                | Since |
+| ----------- | ------------------- | ----- |
+| **`token`** | <code>string</code> | 0.2.2 |
+
+
+#### GetDeliveredNotificationsResult
+
+| Prop                | Type            | Since |
+| ------------------- | --------------- | ----- |
+| **`notifications`** | <code>{}</code> | 0.2.2 |
+
+
+#### Notification
+
+| Prop              | Type                 | Description                                                                                                     | Since |
+| ----------------- | -------------------- | --------------------------------------------------------------------------------------------------------------- | ----- |
+| **`body`**        | <code>string</code>  | The notification payload.                                                                                       | 0.2.2 |
+| **`clickAction`** | <code>string</code>  | The action to be performed on the user opening the notification. Only available for Android.                    | 0.2.2 |
+| **`data`**        | <code>unknown</code> | Any additional data that was included in the push notification payload.                                         | 0.2.2 |
+| **`id`**          | <code>string</code>  | The notification identifier.                                                                                    | 0.2.2 |
+| **`image`**       | <code>string</code>  | The URL of an image that is downloaded on the device and displayed in the notification. Only available for Web. | 0.2.2 |
+| **`link`**        | <code>string</code>  | Deep link from the notification. Only available for Android.                                                    | 0.2.2 |
+| **`subtitle`**    | <code>string</code>  | The notification subtitle. Only available for iOS.                                                              | 0.2.2 |
+| **`tag`**         | <code>string</code>  | The notification string identifier. Only available for Android.                                                 | 0.4.0 |
+| **`title`**       | <code>string</code>  | The notification title.                                                                                         | 0.2.2 |
+
+
+#### RemoveDeliveredNotificationsOptions
+
+| Prop                | Type            | Since |
+| ------------------- | --------------- | ----- |
+| **`notifications`** | <code>{}</code> | 0.4.0 |
+
+
+#### SubscribeToTopicOptions
+
+| Prop        | Type                | Description                         | Since |
+| ----------- | ------------------- | ----------------------------------- | ----- |
+| **`topic`** | <code>string</code> | The name of the topic to subscribe. | 0.2.2 |
+
+
+#### UnsubscribeFromTopicOptions
+
+| Prop        | Type                | Description                                | Since |
+| ----------- | ------------------- | ------------------------------------------ | ----- |
+| **`topic`** | <code>string</code> | The name of the topic to unsubscribe from. | 0.2.2 |
+
+
+#### Channel
+
+| Prop              | Type                                              | Description                                                                                                                                                                                                                                                | Since |
+| ----------------- | ------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
+| **`description`** | <code>string</code>                               | The description of this channel (presented to the user).                                                                                                                                                                                                   | 1.4.0 |
+| **`id`**          | <code>string</code>                               | The channel identifier.                                                                                                                                                                                                                                    | 1.4.0 |
+| **`importance`**  | <code><a href="#importance">Importance</a></code> | The level of interruption for notifications posted to this channel.                                                                                                                                                                                        | 1.4.0 |
+| **`lightColor`**  | <code>string</code>                               | The light color for notifications posted to this channel. Only supported if lights are enabled on this channel and the device supports it. Supported color formats are `#RRGGBB` and `#RRGGBBAA`.                                                          | 1.4.0 |
+| **`lights`**      | <code>boolean</code>                              | Whether notifications posted to this channel should display notification lights, on devices that support it.                                                                                                                                               | 1.4.0 |
+| **`name`**        | <code>string</code>                               | The name of this channel (presented to the user).                                                                                                                                                                                                          | 1.4.0 |
+| **`sound`**       | <code>string</code>                               | The sound that should be played for notifications posted to this channel. Notification channels with an importance of at least `3` should have a sound. The file name of a sound file should be specified relative to the android app `res/raw` directory. | 1.4.0 |
+| **`vibration`**   | <code>boolean</code>                              | Whether notifications posted to this channel should vibrate.                                                                                                                                                                                               | 1.4.0 |
+| **`visibility`**  | <code><a href="#visibility">Visibility</a></code> | The visibility of notifications posted to this channel. This setting is for whether notifications posted to this channel appear on the lockscreen or not, and if so, whether they appear in a redacted form.                                               | 1.4.0 |
+
+
+#### DeleteChannelOptions
+
+| Prop     | Type                | Description             | Since |
+| -------- | ------------------- | ----------------------- | ----- |
+| **`id`** | <code>string</code> | The channel identifier. | 1.4.0 |
+
+
+#### ListChannelsResult
+
+| Prop           | Type            |
+| -------------- | --------------- |
+| **`channels`** | <code>{}</code> |
+
+
+#### TokenReceivedEvent
+
+| Prop        | Type                | Since |
+| ----------- | ------------------- | ----- |
+| **`token`** | <code>string</code> | 0.2.2 |
+
+
+#### PluginListenerHandle
+
+| Prop         | Type                      |
+| ------------ | ------------------------- |
+| **`remove`** | <code>() =&gt; any</code> |
+
+
+#### NotificationReceivedEvent
+
+| Prop               | Type                                                  | Since |
+| ------------------ | ----------------------------------------------------- | ----- |
+| **`notification`** | <code><a href="#notification">Notification</a></code> | 0.2.2 |
+
+
+#### NotificationActionPerformedEvent
+
+| Prop               | Type                                                  | Description                                                      | Since |
+| ------------------ | ----------------------------------------------------- | ---------------------------------------------------------------- | ----- |
+| **`actionId`**     | <code>string</code>                                   | The action performed on the notification.                        | 0.2.2 |
+| **`inputValue`**   | <code>string</code>                                   | Text entered on the notification action. Only available for iOS. | 0.2.2 |
+| **`notification`** | <code><a href="#notification">Notification</a></code> | The notification in which the action was performed.              | 0.2.2 |
+
+
+### Type Aliases
+
+
+#### PermissionState
+
+<code>'prompt' | 'prompt-with-rationale' | 'granted' | 'denied'</code>
+
+
+#### CreateChannelOptions
+
+<code><a href="#channel">Channel</a></code>
+
+
+#### TokenReceivedListener
+
+Callback to receive the token received event.
+
+<code>(event: <a href="#tokenreceivedevent">TokenReceivedEvent</a>): void</code>
+
+
+#### NotificationReceivedListener
+
+Callback to receive the notification received event.
+
+<code>(event: <a href="#notificationreceivedevent">NotificationReceivedEvent</a>): void</code>
+
+
+#### NotificationActionPerformedListener
+
+Callback to receive the notification action performed event.
+
+<code>(event: <a href="#notificationactionperformedevent">NotificationActionPerformedEvent</a>): void</code>
+
+
+### Enums
+
+
+#### Importance
+
+| Members       | Value          | Since |
+| ------------- | -------------- | ----- |
+| **`Min`**     | <code>1</code> | 1.4.0 |
+| **`Low`**     | <code>2</code> | 1.4.0 |
+| **`Default`** | <code>3</code> | 1.4.0 |
+| **`High`**    | <code>4</code> | 1.4.0 |
+| **`Max`**     | <code>5</code> | 1.4.0 |
+
+
+#### Visibility
+
+| Members       | Value           | Since |
+| ------------- | --------------- | ----- |
+| **`Secret`**  | <code>-1</code> | 1.4.0 |
+| **`Private`** | <code>0</code>  | 1.4.0 |
+| **`Public`**  | <code>1</code>  | 1.4.0 |
+
+</docgen-api>
+
+## Changelog
+
+See [CHANGELOG.md](https://github.com/capawesome-team/capacitor-firebase/blob/main/packages/messaging/CHANGELOG.md).
 
 ## License
 
-See [LICENSE](./LICENSE).
+See [LICENSE](https://github.com/capawesome-team/capacitor-firebase/blob/main/packages/messaging/LICENSE).
 
 [^1]: This project is not affiliated with, endorsed by, sponsored by, or approved by Google LLC or any of their affiliates or subsidiaries.
