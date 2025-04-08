@@ -18,7 +18,7 @@ import FirebaseAnalytics
     
     @objc public func getAppSessionId(completion: @escaping (Int64, Error?) -> Void) -> Void {
         Analytics.sessionID { sessionId, error in
-            NSLog("[TECTONIC_FIREBASE] TectonicFirebaseAnalytics: getAppSessionId calling completion")
+            // NSLog("[TECTONIC_FIREBASE] TectonicFirebaseAnalytics: getAppSessionId calling completion")
             completion(sessionId, error)
         }
     }

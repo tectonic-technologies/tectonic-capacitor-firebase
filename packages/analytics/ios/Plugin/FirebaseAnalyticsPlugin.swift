@@ -48,7 +48,7 @@ public class FirebaseAnalyticsPlugin: CAPPlugin, CAPBridgedPlugin {
     
     @objc func getAppSessionId(_ call: CAPPluginCall) {
         implementation?.getAppSessionId { sessionId, error in
-            NSLog("[TECTONIC_FIREBASE] TectonicFirebaseAnalyticsPlugin: getAppSessionId resp, sessionId: %@, message: %@", sessionId, error?.localizedDescription ?? "")
+            // NSLog("[TECTONIC_FIREBASE] TectonicFirebaseAnalyticsPlugin: getAppSessionId resp, sessionId: %@, message: %@", sessionId, error?.localizedDescription ?? "")
             if let error = error {
                 call.reject(error.localizedDescription)
             }
