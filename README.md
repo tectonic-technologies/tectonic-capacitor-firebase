@@ -1,86 +1,929 @@
-<br />
-<div align="center">
-  <h1>
-    <img src="https://user-images.githubusercontent.com/13857929/161965231-b2c7f586-2ee8-4342-a71a-0532bb8b4c1f.png" alt="Capacitor Firebase" width="720" />
-  </h1>
-</div>
-<br />
-<p align="center">
-  <a href="https://github.com/capawesome-team/capacitor-firebase"><img src="https://img.shields.io/maintenance/yes/2025?style=flat-square" /></a>
-  <a href="https://github.com/capawesome-team/capacitor-firebase/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/capawesome-team/capacitor-firebase/ci.yml?branch=main&style=flat-square" /></a>
-  <a href="https://github.com/capawesome-team/capacitor-firebase"><img src="https://img.shields.io/github/license/capawesome-team/capacitor-firebase?style=flat-square" /></a>
-  <a href="https://github.com/capawesome-team"><img src="https://img.shields.io/badge/part%20of-capawesome-%234f46e5?style=flat-square" /></a>
-  <a href="https://turborepo.org/"><img src="https://img.shields.io/badge/maintained%20with-turborepo-%237f6ab2?style=flat-square" /></a>
-  <a href="https://devlibrary.withgoogle.com/products/firebase/repos/robingenz-capacitor-firebase"><img src="https://img.shields.io/badge/part%20of-DevLibrary-9cf?color=4285F4&logoColor=4285F4&logo=google&style=flat-square" /></a>
-</p>
+# @capacitor-firebase/firestore
 
-## Features
-
-Capacitor Firebase is a collection of Capacitor plugins that make it easier for you to use [Firebase](https://firebase.google.com/) in your Capacitor project.[^1]
-
-- 🔋 Supports **Android, iOS and the Web**
-- ⚡️ **Capacitor 7** support
-- 🔥 **Firebase Web SDK** (modular) support
-- 🦋 Consistent versioning (no more SDK versions conflicts)
-- 👁 Unified Typescript definitions
-- 📄 Full documentation
-- ⚙️ Under active development, more plugins coming soon
-
-## Maintainers
-
-| Maintainer | GitHub                                    | Social                                        |
-| ---------- | ----------------------------------------- | --------------------------------------------- |
-| Robin Genz | [robingenz](https://github.com/robingenz) | [@robin_genz](https://twitter.com/robin_genz) |
-
-## Sponsors
-
-This is an Apache-2.0-licensed open source project.
-It can grow thanks to the support by these awesome people.
-If you'd like to join them, please read more [here](https://github.com/sponsors/capawesome-team).
-
-<p align="center">
-  <a href="https://cdn.jsdelivr.net/gh/capawesome-team/static/images/sponsors/sponsors.svg">
-    <img src="https://cdn.jsdelivr.net/gh/capawesome-team/static/images/sponsors/sponsors.svg" />
-  </a>
-</p>
+Unofficial Capacitor plugin for [Firebase Cloud Firestore](https://firebase.google.com/docs/firestore/).[^1]
 
 ## Installation
 
-Each plugin has its own installation instructions.
-Click on the name of the desired plugin under the [`Plugins`](#plugins) section to get to the installation guide.
+```bash
+npm install @capacitor-firebase/firestore
+npx cap sync
+```
 
-## Plugins
+Add Firebase to your project if you haven't already ([Android](https://github.com/capawesome-team/capacitor-firebase/blob/main/docs/firebase-setup.md#android) / [iOS](https://github.com/capawesome-team/capacitor-firebase/blob/main/docs/firebase-setup.md#ios) / [Web](https://github.com/capawesome-team/capacitor-firebase/blob/main/docs/firebase-setup.md#web)).
 
-| Name                                             | Package                              | Version                                                                                                                                                             | Downloads                                                                                                                                                                |
-| ------------------------------------------------ | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [Analytics](./packages/analytics)                | `@capacitor-firebase/analytics`      | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/analytics?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/analytics)           | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/analytics?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/analytics)           |
-| [App](./packages/app)                            | `@capacitor-firebase/app`            | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/app?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/app)                       | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/app?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/app)                       |
-| [App Check](./packages/app-check)                | `@capacitor-firebase/app-check`      | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/app-check?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/app-check)           | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/app-check?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/app-check)           |
-| [Authentication](./packages/authentication)      | `@capacitor-firebase/authentication` | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/authentication?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/authentication) | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/authentication?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/authentication) |
-| [Crashlytics](./packages/crashlytics)            | `@capacitor-firebase/crashlytics`    | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/crashlytics?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/crashlytics)       | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/crashlytics?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/crashlytics)       |
-| [Cloud Firestore](./packages/firestore)          | `@capacitor-firebase/firestore`      | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/firestore?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/firestore)           | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/firestore?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/firestore)           |
-| [Cloud Functions](./packages/functions)          | `@capacitor-firebase/functions`      | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/functions?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/functions)           | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/functions?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/functions)           |
-| [Cloud Messaging](./packages/messaging)          | `@capacitor-firebase/messaging`      | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/messaging?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/messaging)           | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/messaging?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/messaging)           |
-| [Cloud Storage](./packages/storage)              | `@capacitor-firebase/storage`        | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/storage?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/storage)               | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/storage?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/storage)               |
-| [Performance Monitoring](./packages/performance) | `@capacitor-firebase/performance`    | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/performance?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/performance)       | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/performance?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/performance)       |
-| [Remote Config](./packages/remote-config)        | `@capacitor-firebase/remote-config`  | [![npm badge](https://img.shields.io/npm/v/@capacitor-firebase/remote-config?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/remote-config)   | [![npm downloads](https://img.shields.io/npm/dw/@capacitor-firebase/remote-config?style=flat-square)](https://www.npmjs.com/package/@capacitor-firebase/remote-config)   |
+### Android
 
-## Changelogs
+#### Variables
 
-Each plugin has its own `CHANGELOG.md` file which contains information about version changes.
-Click on the name of the desired plugin under the [`Plugins`](#plugins) section to get to the plugin folder.
+This plugin will use the following project variables (defined in your app’s `variables.gradle` file):
 
-## Breaking Changes
+- `$firebaseFirestoreVersion` version of `com.google.firebase:firebase-firestore` (default: `25.1.1`)
 
-Each plugin has its own `BREAKING.md` file which contains information about breaking changes.
-Click on the name of the desired plugin under the [`Plugins`](#plugins) section to get to the plugin folder.
+## Configuration
 
-## Contributing
+No configuration required for this plugin.
 
-See [CONTRIBUTING.md](./CONTRIBUTING.md).
+## Demo
+
+A working example can be found here: [robingenz/capacitor-firebase-plugin-demo](https://github.com/robingenz/capacitor-firebase-plugin-demo)
+
+## Starter templates
+
+The following starter templates are available:
+
+- [Ionstarter Angular Firebase](https://ionstarter.dev/)
+
+## Usage
+
+```typescript
+import { FirebaseFirestore } from '@capacitor-firebase/firestore';
+
+const addDocument = async () => {
+  await FirebaseFirestore.addDocument({
+    reference: 'users',
+    data: { 
+      first: 'Alan', 
+      last: 'Turing', 
+      born: 1912 
+    },
+  });
+};
+
+const setDocument = async () => {
+  await FirebaseFirestore.setDocument({
+    reference: 'users/Aorq09lkt1ynbR7xhTUx',
+    data: { 
+      first: 'Alan', 
+      last: 'Turing', 
+      born: 1912 
+    },
+    merge: true,
+  });
+};
+
+const getDocument = async () => {
+  const { snapshot } = await FirebaseFirestore.getDocument({
+    reference: 'users/Aorq09lkt1ynbR7xhTUx',
+  });
+  return snapshot;
+};
+
+const updateDocument = async () => {
+  await FirebaseFirestore.updateDocument({
+    reference: 'users/Aorq09lkt1ynbR7xhTUx',
+    data: { 
+      first: 'Alan', 
+      last: 'Turing', 
+      born: 1912 
+    },
+  });
+};
+
+const deleteDocument = async () => {
+  await FirebaseFirestore.deleteDocument({
+    reference: 'users/Aorq09lkt1ynbR7xhTUx',
+  });
+};
+
+const getCollection = async () => {
+  const { snapshots } = await FirebaseFirestore.getCollection({
+    reference: 'users',
+    compositeFilter: {
+      type: 'and',
+      queryConstraints: [
+        {
+          type: 'where',
+          fieldPath: 'born',
+          opStr: '==',
+          value: 1912,
+        },
+      ],
+    },
+    queryConstraints: [
+      {
+        type: 'orderBy',
+        fieldPath: 'born',
+        directionStr: 'desc',
+      },
+      {
+        type: 'limit',
+        limit: 10,
+      },
+    ],
+  });
+  return snapshots;
+};
+
+const getCollectionGroup = async () => {
+  const { snapshots } = await FirebaseFirestore.getCollectionGroup({
+    reference: 'users',
+    compositeFilter: {
+      type: 'and',
+      queryConstraints: [
+        {
+          type: 'where',
+          fieldPath: 'born',
+          opStr: '==',
+          value: 1912,
+        },
+      ],
+    },
+    queryConstraints: [
+      {
+        type: 'orderBy',
+        fieldPath: 'born',
+        directionStr: 'desc',
+      },
+      {
+        type: 'limit',
+        limit: 10,
+      },
+    ],
+  });
+  return snapshots;
+};
+
+const enableNetwork = async () => {
+  await FirebaseFirestore.enableNetwork();
+};
+
+const disableNetwork = async () => {
+  await FirebaseFirestore.disableNetwork();
+};
+
+const useEmulator = async () => {
+  await FirebaseFirestore.useEmulator({
+    host: '10.0.2.2',
+    port: 9001,
+  });
+};
+
+const addDocumentSnapshotListener = async () => {
+  const callbackId = await FirebaseFirestore.addDocumentSnapshotListener(
+    {
+      reference: 'users/Aorq09lkt1ynbR7xhTUx',
+    },
+    (event, error) => {
+      if (error) {
+        console.error(error);
+      } else {
+        console.log(event);
+      }
+    }
+  );
+  return callbackId;
+};
+
+const addCollectionSnapshotListener = async () => {
+  const callbackId = await FirebaseFirestore.addCollectionSnapshotListener(
+    {
+      reference: 'users',
+      compositeFilter: {
+        type: 'and',
+        queryConstraints: [
+          {
+            type: 'where',
+            fieldPath: 'born',
+            opStr: '==',
+            value: 1912,
+          },
+        ],
+      },
+      queryConstraints: [
+        {
+          type: 'orderBy',
+          fieldPath: 'born',
+          directionStr: 'desc',
+        },
+        {
+          type: 'limit',
+          limit: 10,
+        },
+      ],
+    },
+    (event, error) => {
+      if (error) {
+        console.error(error);
+      } else {
+        console.log(event);
+      }
+    }
+  );
+  return callbackId;
+};
+
+const addCollectionGroupSnapshotListener = async () => {
+  const callbackId = await FirebaseFirestore.addCollectionGroupSnapshotListener(
+    {
+      reference: 'users',
+      compositeFilter: {
+        type: 'and',
+        queryConstraints: [
+          {
+            type: 'where',
+            fieldPath: 'born',
+            opStr: '==',
+            value: 1912,
+          },
+        ],
+      },
+      queryConstraints: [
+        {
+          type: 'orderBy',
+          fieldPath: 'born',
+          directionStr: 'desc',
+        },
+        {
+          type: 'limit',
+          limit: 10,
+        },
+      ],
+    },
+    (event, error) => {
+      if (error) {
+        console.error(error);
+      } else {
+        console.log(event);
+      }
+    }
+  );
+  return callbackId;
+};
+
+const removeSnapshotListener = async (callbackId: string) => {
+  await FirebaseFirestore.removeSnapshotListener({
+    callbackId,
+  });
+};
+
+const removeAllListeners = async () => {
+  await FirebaseFirestore.removeAllListeners();
+};
+```
+
+## API
+
+<docgen-index>
+
+* [`addDocument(...)`](#adddocument)
+* [`setDocument(...)`](#setdocument)
+* [`getDocument(...)`](#getdocument)
+* [`updateDocument(...)`](#updatedocument)
+* [`deleteDocument(...)`](#deletedocument)
+* [`writeBatch(...)`](#writebatch)
+* [`getCollection(...)`](#getcollection)
+* [`getCollectionGroup(...)`](#getcollectiongroup)
+* [`getCountFromServer(...)`](#getcountfromserver)
+* [`clearPersistence()`](#clearpersistence)
+* [`enableNetwork()`](#enablenetwork)
+* [`disableNetwork()`](#disablenetwork)
+* [`useEmulator(...)`](#useemulator)
+* [`addDocumentSnapshotListener(...)`](#adddocumentsnapshotlistener)
+* [`addCollectionSnapshotListener(...)`](#addcollectionsnapshotlistener)
+* [`addCollectionGroupSnapshotListener(...)`](#addcollectiongroupsnapshotlistener)
+* [`removeSnapshotListener(...)`](#removesnapshotlistener)
+* [`removeAllListeners()`](#removealllisteners)
+* [Interfaces](#interfaces)
+* [Type Aliases](#type-aliases)
+
+</docgen-index>
+
+<docgen-api>
+<!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
+
+### addDocument(...)
+
+```typescript
+addDocument(options: AddDocumentOptions) => any
+```
+
+Adds a new document to a collection with the given data.
+
+| Param         | Type                                                              |
+| ------------- | ----------------------------------------------------------------- |
+| **`options`** | <code><a href="#adddocumentoptions">AddDocumentOptions</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 5.2.0
+
+--------------------
+
+
+### setDocument(...)
+
+```typescript
+setDocument(options: SetDocumentOptions) => any
+```
+
+Writes to the document referred to by the specified reference.
+If the document does not yet exist, it will be created.
+
+| Param         | Type                                                              |
+| ------------- | ----------------------------------------------------------------- |
+| **`options`** | <code><a href="#setdocumentoptions">SetDocumentOptions</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 5.2.0
+
+--------------------
+
+
+### getDocument(...)
+
+```typescript
+getDocument<T extends DocumentData = DocumentData>(options: GetDocumentOptions) => any
+```
+
+Reads the document referred to by the specified reference.
+
+| Param         | Type                                                              |
+| ------------- | ----------------------------------------------------------------- |
+| **`options`** | <code><a href="#getdocumentoptions">GetDocumentOptions</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 5.2.0
+
+--------------------
+
+
+### updateDocument(...)
+
+```typescript
+updateDocument(options: UpdateDocumentOptions) => any
+```
+
+Updates fields in the document referred to by the specified reference.
+
+| Param         | Type                                                                    |
+| ------------- | ----------------------------------------------------------------------- |
+| **`options`** | <code><a href="#updatedocumentoptions">UpdateDocumentOptions</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 5.2.0
+
+--------------------
+
+
+### deleteDocument(...)
+
+```typescript
+deleteDocument(options: DeleteDocumentOptions) => any
+```
+
+Deletes the document referred to by the specified reference.
+
+| Param         | Type                                                                    |
+| ------------- | ----------------------------------------------------------------------- |
+| **`options`** | <code><a href="#deletedocumentoptions">DeleteDocumentOptions</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 5.2.0
+
+--------------------
+
+
+### writeBatch(...)
+
+```typescript
+writeBatch(options: WriteBatchOptions) => any
+```
+
+Execute multiple write operations as a single batch.
+
+| Param         | Type                                                            |
+| ------------- | --------------------------------------------------------------- |
+| **`options`** | <code><a href="#writebatchoptions">WriteBatchOptions</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 6.1.0
+
+--------------------
+
+
+### getCollection(...)
+
+```typescript
+getCollection<T extends DocumentData = DocumentData>(options: GetCollectionOptions) => any
+```
+
+Reads the collection referenced by the specified reference.
+
+| Param         | Type                                                                  |
+| ------------- | --------------------------------------------------------------------- |
+| **`options`** | <code><a href="#getcollectionoptions">GetCollectionOptions</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 5.2.0
+
+--------------------
+
+
+### getCollectionGroup(...)
+
+```typescript
+getCollectionGroup<T extends DocumentData = DocumentData>(options: GetCollectionGroupOptions) => any
+```
+
+Reads the collection group referenced by the specified reference.
+
+| Param         | Type                                                                            |
+| ------------- | ------------------------------------------------------------------------------- |
+| **`options`** | <code><a href="#getcollectiongroupoptions">GetCollectionGroupOptions</a></code> |
+
+**Returns:** <code>any</code>
+
+--------------------
+
+
+### getCountFromServer(...)
+
+```typescript
+getCountFromServer(options: GetCountFromServerOptions) => any
+```
+
+Fetches the number of documents in a collection.
+
+| Param         | Type                                                                            |
+| ------------- | ------------------------------------------------------------------------------- |
+| **`options`** | <code><a href="#getcountfromserveroptions">GetCountFromServerOptions</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 6.4.0
+
+--------------------
+
+
+### clearPersistence()
+
+```typescript
+clearPersistence() => any
+```
+
+Clears the persistent storage. This includes pending writes and cached documents.
+
+Must be called after the app is shutdown or when the app is first initialized.
+
+**Returns:** <code>any</code>
+
+**Since:** 5.2.0
+
+--------------------
+
+
+### enableNetwork()
+
+```typescript
+enableNetwork() => any
+```
+
+Re-enables use of the network.
+
+**Returns:** <code>any</code>
+
+**Since:** 5.2.0
+
+--------------------
+
+
+### disableNetwork()
+
+```typescript
+disableNetwork() => any
+```
+
+Disables use of the network.
+
+**Returns:** <code>any</code>
+
+**Since:** 5.2.0
+
+--------------------
+
+
+### useEmulator(...)
+
+```typescript
+useEmulator(options: UseEmulatorOptions) => any
+```
+
+Instrument your app to talk to the Firestore emulator.
+
+| Param         | Type                                                              |
+| ------------- | ----------------------------------------------------------------- |
+| **`options`** | <code><a href="#useemulatoroptions">UseEmulatorOptions</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 6.1.0
+
+--------------------
+
+
+### addDocumentSnapshotListener(...)
+
+```typescript
+addDocumentSnapshotListener<T extends DocumentData = DocumentData>(options: AddDocumentSnapshotListenerOptions, callback: AddDocumentSnapshotListenerCallback<T>) => any
+```
+
+Adds a listener for document snapshot events.
+
+| Param          | Type                                                                                                         |
+| -------------- | ------------------------------------------------------------------------------------------------------------ |
+| **`options`**  | <code><a href="#adddocumentsnapshotlisteneroptions">AddDocumentSnapshotListenerOptions</a></code>            |
+| **`callback`** | <code><a href="#adddocumentsnapshotlistenercallback">AddDocumentSnapshotListenerCallback</a>&lt;T&gt;</code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 5.2.0
+
+--------------------
+
+
+### addCollectionSnapshotListener(...)
+
+```typescript
+addCollectionSnapshotListener<T extends DocumentData = DocumentData>(options: AddCollectionSnapshotListenerOptions, callback: AddCollectionSnapshotListenerCallback<T>) => any
+```
+
+Adds a listener for collection snapshot events.
+
+| Param          | Type                                                                                                             |
+| -------------- | ---------------------------------------------------------------------------------------------------------------- |
+| **`options`**  | <code><a href="#addcollectionsnapshotlisteneroptions">AddCollectionSnapshotListenerOptions</a></code>            |
+| **`callback`** | <code><a href="#addcollectionsnapshotlistenercallback">AddCollectionSnapshotListenerCallback</a>&lt;T&gt;</code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 5.2.0
+
+--------------------
+
+
+### addCollectionGroupSnapshotListener(...)
+
+```typescript
+addCollectionGroupSnapshotListener<T extends DocumentData = DocumentData>(options: AddCollectionGroupSnapshotListenerOptions, callback: AddCollectionGroupSnapshotListenerCallback<T>) => any
+```
+
+Adds a listener for collection group snapshot events.
+
+| Param          | Type                                                                                                                       |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| **`options`**  | <code><a href="#addcollectiongroupsnapshotlisteneroptions">AddCollectionGroupSnapshotListenerOptions</a></code>            |
+| **`callback`** | <code><a href="#addcollectiongroupsnapshotlistenercallback">AddCollectionGroupSnapshotListenerCallback</a>&lt;T&gt;</code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 6.1.0
+
+--------------------
+
+
+### removeSnapshotListener(...)
+
+```typescript
+removeSnapshotListener(options: RemoveSnapshotListenerOptions) => any
+```
+
+Remove a listener for document or collection snapshot events.
+
+| Param         | Type                                                                                    |
+| ------------- | --------------------------------------------------------------------------------------- |
+| **`options`** | <code><a href="#removesnapshotlisteneroptions">RemoveSnapshotListenerOptions</a></code> |
+
+**Returns:** <code>any</code>
+
+**Since:** 5.2.0
+
+--------------------
+
+
+### removeAllListeners()
+
+```typescript
+removeAllListeners() => any
+```
+
+Remove all listeners for this plugin.
+
+**Returns:** <code>any</code>
+
+**Since:** 5.2.0
+
+--------------------
+
+
+### Interfaces
+
+
+#### AddDocumentOptions
+
+| Prop            | Type                                                  | Description                                                                         | Since |
+| --------------- | ----------------------------------------------------- | ----------------------------------------------------------------------------------- | ----- |
+| **`reference`** | <code>string</code>                                   | The reference as a string, with path components separated by a forward slash (`/`). | 5.2.0 |
+| **`data`**      | <code><a href="#documentdata">DocumentData</a></code> | An object containing the data for the new document.                                 | 5.2.0 |
+
+
+#### DocumentData
+
+
+#### AddDocumentResult
+
+| Prop            | Type                                                            | Description                                | Since |
+| --------------- | --------------------------------------------------------------- | ------------------------------------------ | ----- |
+| **`reference`** | <code><a href="#documentreference">DocumentReference</a></code> | The reference of the newly added document. | 5.2.0 |
+
+
+#### DocumentReference
+
+| Prop       | Type                | Description                                      | Since |
+| ---------- | ------------------- | ------------------------------------------------ | ----- |
+| **`id`**   | <code>string</code> | The document's identifier within its collection. | 5.2.0 |
+| **`path`** | <code>string</code> | The path of the document.                        | 5.2.0 |
+
+
+#### SetDocumentOptions
+
+| Prop            | Type                                                  | Description                                                                         | Default            | Since |
+| --------------- | ----------------------------------------------------- | ----------------------------------------------------------------------------------- | ------------------ | ----- |
+| **`reference`** | <code>string</code>                                   | The reference as a string, with path components separated by a forward slash (`/`). |                    | 5.2.0 |
+| **`data`**      | <code><a href="#documentdata">DocumentData</a></code> | An object containing the data for the new document.                                 |                    | 5.2.0 |
+| **`merge`**     | <code>boolean</code>                                  | Whether to merge the provided data with an existing document.                       | <code>false</code> | 5.2.0 |
+
+
+#### GetDocumentOptions
+
+| Prop            | Type                | Description                                                                         | Since |
+| --------------- | ------------------- | ----------------------------------------------------------------------------------- | ----- |
+| **`reference`** | <code>string</code> | The reference as a string, with path components separated by a forward slash (`/`). | 5.2.0 |
+
+
+#### GetDocumentResult
+
+| Prop           | Type                                                                   | Description                    | Since |
+| -------------- | ---------------------------------------------------------------------- | ------------------------------ | ----- |
+| **`snapshot`** | <code><a href="#documentsnapshot">DocumentSnapshot</a>&lt;T&gt;</code> | The current document contents. | 5.2.0 |
+
+
+#### DocumentSnapshot
+
+| Prop           | Type                                                          | Description                                                                                   | Since |
+| -------------- | ------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | ----- |
+| **`id`**       | <code>string</code>                                           | The document's identifier within its collection.                                              | 5.2.0 |
+| **`path`**     | <code>string</code>                                           | The path of the document.                                                                     | 5.2.0 |
+| **`data`**     | <code>T \| null</code>                                        | An object containing the data for the document. Returns `null` if the document doesn't exist. | 5.2.0 |
+| **`metadata`** | <code><a href="#snapshotmetadata">SnapshotMetadata</a></code> | Metadata about the snapshot, concerning its source and if it has local modifications.         | 6.2.0 |
+
+
+#### SnapshotMetadata
+
+| Prop                   | Type                 | Description                                               | Since |
+| ---------------------- | -------------------- | --------------------------------------------------------- | ----- |
+| **`fromCache`**        | <code>boolean</code> | True if the snapshot was created from cached data.        | 6.2.0 |
+| **`hasPendingWrites`** | <code>boolean</code> | True if the snapshot was created from pending write data. | 6.2.0 |
+
+
+#### UpdateDocumentOptions
+
+| Prop            | Type                                                  | Description                                                                         | Since |
+| --------------- | ----------------------------------------------------- | ----------------------------------------------------------------------------------- | ----- |
+| **`reference`** | <code>string</code>                                   | The reference as a string, with path components separated by a forward slash (`/`). | 5.2.0 |
+| **`data`**      | <code><a href="#documentdata">DocumentData</a></code> | An object containing the data for the new document.                                 | 5.2.0 |
+
+
+#### DeleteDocumentOptions
+
+| Prop            | Type                | Description                                                                         | Since |
+| --------------- | ------------------- | ----------------------------------------------------------------------------------- | ----- |
+| **`reference`** | <code>string</code> | The reference as a string, with path components separated by a forward slash (`/`). | 5.2.0 |
+
+
+#### WriteBatchOptions
+
+| Prop             | Type            | Description                             | Since |
+| ---------------- | --------------- | --------------------------------------- | ----- |
+| **`operations`** | <code>{}</code> | The operations to execute in the batch. | 6.1.0 |
+
+
+#### WriteBatchOperation
+
+| Prop            | Type                                                  | Description                                                                         | Since |
+| --------------- | ----------------------------------------------------- | ----------------------------------------------------------------------------------- | ----- |
+| **`type`**      | <code>'set' \| 'update' \| 'delete'</code>            | The type of operation.                                                              | 6.1.0 |
+| **`reference`** | <code>string</code>                                   | The reference as a string, with path components separated by a forward slash (`/`). | 6.1.0 |
+| **`data`**      | <code><a href="#documentdata">DocumentData</a></code> | An object containing the data for the new document.                                 | 6.1.0 |
+
+
+#### GetCollectionOptions
+
+| Prop                   | Type                                                                                      | Description                                                                                         | Since |
+| ---------------------- | ----------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | ----- |
+| **`reference`**        | <code>string</code>                                                                       | The reference as a string, with path components separated by a forward slash (`/`).                 | 5.2.0 |
+| **`compositeFilter`**  | <code><a href="#querycompositefilterconstraint">QueryCompositeFilterConstraint</a></code> | The filter to apply.                                                                                | 5.2.0 |
+| **`queryConstraints`** | <code>{}</code>                                                                           | Narrow or order the set of documents to retrieve, but do not explicitly filter for document fields. | 5.2.0 |
+
+
+#### QueryCompositeFilterConstraint
+
+| Prop                   | Type                       | Description                 | Since |
+| ---------------------- | -------------------------- | --------------------------- | ----- |
+| **`type`**             | <code>'and' \| 'or'</code> | The type of the constraint. | 5.2.0 |
+| **`queryConstraints`** | <code>{}</code>            | The filters to apply.       | 5.2.0 |
+
+
+#### QueryFieldFilterConstraint
+
+| Prop            | Type                                                    | Description                    | Since |
+| --------------- | ------------------------------------------------------- | ------------------------------ | ----- |
+| **`type`**      | <code>'where'</code>                                    | The type of the constraint.    | 5.2.0 |
+| **`fieldPath`** | <code>string</code>                                     | The path to compare.           | 5.2.0 |
+| **`opStr`**     | <code><a href="#queryoperator">QueryOperator</a></code> | The operation string to apply. | 5.2.0 |
+| **`value`**     | <code>any</code>                                        | The value for comparison.      | 5.2.0 |
+
+
+#### QueryOrderByConstraint
+
+| Prop               | Type                                                          | Description                 | Since |
+| ------------------ | ------------------------------------------------------------- | --------------------------- | ----- |
+| **`type`**         | <code>'orderBy'</code>                                        | The type of the constraint. | 5.2.0 |
+| **`fieldPath`**    | <code>string</code>                                           | The path to compare.        | 5.2.0 |
+| **`directionStr`** | <code><a href="#orderbydirection">OrderByDirection</a></code> | The direction to sort by.   | 5.2.0 |
+
+
+#### QueryLimitConstraint
+
+| Prop        | Type                                  | Description                            | Since |
+| ----------- | ------------------------------------- | -------------------------------------- | ----- |
+| **`type`**  | <code>'limit' \| 'limitToLast'</code> | The type of the constraint.            | 5.2.0 |
+| **`limit`** | <code>number</code>                   | The maximum number of items to return. | 5.2.0 |
+
+
+#### QueryStartAtConstraint
+
+| Prop            | Type                                   | Description                                                                                                                                                        | Since |
+| --------------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----- |
+| **`type`**      | <code>'startAt' \| 'startAfter'</code> | The type of the constraint.                                                                                                                                        | 5.2.0 |
+| **`reference`** | <code>string</code>                    | The reference to start at or after as a string, with path components separated by a forward slash (`/`). **Attention**: This requires an additional document read. | 5.2.0 |
+
+
+#### QueryEndAtConstraint
+
+| Prop            | Type                                | Description                                                                                                                                                          | Since |
+| --------------- | ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
+| **`type`**      | <code>'endAt' \| 'endBefore'</code> | The type of the constraint.                                                                                                                                          | 5.2.0 |
+| **`reference`** | <code>string</code>                 | The reference as to end at or before as a string, with path components separated by a forward slash (`/`). **Attention**: This requires an additional document read. | 5.2.0 |
+
+
+#### GetCollectionResult
+
+| Prop            | Type            | Description                      | Since |
+| --------------- | --------------- | -------------------------------- | ----- |
+| **`snapshots`** | <code>{}</code> | The documents in the collection. | 5.2.0 |
+
+
+#### GetCollectionGroupOptions
+
+| Prop                   | Type                                                                                      | Description                                                                                         | Since |
+| ---------------------- | ----------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | ----- |
+| **`reference`**        | <code>string</code>                                                                       | The reference as a string, with path components separated by a forward slash (`/`).                 | 5.2.0 |
+| **`compositeFilter`**  | <code><a href="#querycompositefilterconstraint">QueryCompositeFilterConstraint</a></code> | The filter to apply.                                                                                | 5.2.0 |
+| **`queryConstraints`** | <code>{}</code>                                                                           | Narrow or order the set of documents to retrieve, but do not explicitly filter for document fields. | 5.2.0 |
+
+
+#### GetCollectionGroupResult
+
+| Prop            | Type            | Description                      | Since |
+| --------------- | --------------- | -------------------------------- | ----- |
+| **`snapshots`** | <code>{}</code> | The documents in the collection. | 5.2.0 |
+
+
+#### GetCountFromServerOptions
+
+| Prop            | Type                | Description                                                                         | Since |
+| --------------- | ------------------- | ----------------------------------------------------------------------------------- | ----- |
+| **`reference`** | <code>string</code> | The reference as a string, with path components separated by a forward slash (`/`). | 6.4.0 |
+
+
+#### GetCountFromServerResult
+
+| Prop        | Type                | Description                                | Since |
+| ----------- | ------------------- | ------------------------------------------ | ----- |
+| **`count`** | <code>number</code> | The number of documents in the collection. | 6.4.0 |
+
+
+#### UseEmulatorOptions
+
+| Prop       | Type                | Description                                                                                                                                                                     | Default           | Since |
+| ---------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ----- |
+| **`host`** | <code>string</code> | The emulator host without any port or scheme. Note when using a Android Emulator device: 10.0.2.2 is the special IP address to connect to the 'localhost' of the host computer. |                   | 6.1.0 |
+| **`port`** | <code>number</code> | The emulator port.                                                                                                                                                              | <code>8080</code> | 6.1.0 |
+
+
+#### AddDocumentSnapshotListenerOptions
+
+| Prop            | Type                | Description                                                                         | Since |
+| --------------- | ------------------- | ----------------------------------------------------------------------------------- | ----- |
+| **`reference`** | <code>string</code> | The reference as a string, with path components separated by a forward slash (`/`). | 5.2.0 |
+
+
+#### AddCollectionSnapshotListenerOptions
+
+| Prop                   | Type                                                                                      | Description                                                                                         | Since |
+| ---------------------- | ----------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | ----- |
+| **`reference`**        | <code>string</code>                                                                       | The reference as a string, with path components separated by a forward slash (`/`).                 | 5.2.0 |
+| **`compositeFilter`**  | <code><a href="#querycompositefilterconstraint">QueryCompositeFilterConstraint</a></code> | The filter to apply.                                                                                | 5.2.0 |
+| **`queryConstraints`** | <code>{}</code>                                                                           | Narrow or order the set of documents to retrieve, but do not explicitly filter for document fields. | 5.2.0 |
+
+
+#### AddCollectionGroupSnapshotListenerOptions
+
+| Prop                   | Type                                                                                      | Description                                                                                         | Since |
+| ---------------------- | ----------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | ----- |
+| **`reference`**        | <code>string</code>                                                                       | The reference as a string, with path components separated by a forward slash (`/`).                 | 6.1.0 |
+| **`compositeFilter`**  | <code><a href="#querycompositefilterconstraint">QueryCompositeFilterConstraint</a></code> | The filter to apply.                                                                                | 6.1.0 |
+| **`queryConstraints`** | <code>{}</code>                                                                           | Narrow or order the set of documents to retrieve, but do not explicitly filter for document fields. | 6.1.0 |
+
+
+#### RemoveSnapshotListenerOptions
+
+| Prop             | Type                                              | Since |
+| ---------------- | ------------------------------------------------- | ----- |
+| **`callbackId`** | <code><a href="#callbackid">CallbackId</a></code> | 5.2.0 |
+
+
+### Type Aliases
+
+
+#### QueryFilterConstraint
+
+<code><a href="#queryfieldfilterconstraint">QueryFieldFilterConstraint</a> | <a href="#querycompositefilterconstraint">QueryCompositeFilterConstraint</a></code>
+
+
+#### QueryOperator
+
+<code>'&lt;' | '&lt;=' | '==' | '&gt;=' | '&gt;' | '!=' | 'array-contains' | 'array-contains-any' | 'in' | 'not-in'</code>
+
+
+#### QueryNonFilterConstraint
+
+<code><a href="#queryorderbyconstraint">QueryOrderByConstraint</a> | <a href="#querylimitconstraint">QueryLimitConstraint</a> | <a href="#querystartatconstraint">QueryStartAtConstraint</a> | <a href="#queryendatconstraint">QueryEndAtConstraint</a></code>
+
+
+#### OrderByDirection
+
+<code>'desc' | 'asc'</code>
+
+
+#### AddDocumentSnapshotListenerCallback
+
+<code>(event: <a href="#adddocumentsnapshotlistenercallbackevent">AddDocumentSnapshotListenerCallbackEvent</a>&lt;T&gt; | null, error: any): void</code>
+
+
+#### AddDocumentSnapshotListenerCallbackEvent
+
+<code><a href="#getdocumentresult">GetDocumentResult</a>&lt;T&gt;</code>
+
+
+#### CallbackId
+
+<code>string</code>
+
+
+#### AddCollectionSnapshotListenerCallback
+
+<code>(event: <a href="#addcollectionsnapshotlistenercallbackevent">AddCollectionSnapshotListenerCallbackEvent</a>&lt;T&gt; | null, error: any): void</code>
+
+
+#### AddCollectionSnapshotListenerCallbackEvent
+
+<code><a href="#getcollectionresult">GetCollectionResult</a>&lt;T&gt;</code>
+
+
+#### AddCollectionGroupSnapshotListenerCallback
+
+<code>(event: <a href="#addcollectiongroupsnapshotlistenercallbackevent">AddCollectionGroupSnapshotListenerCallbackEvent</a>&lt;T&gt; | null, error: any): void</code>
+
+
+#### AddCollectionGroupSnapshotListenerCallbackEvent
+
+<code><a href="#getcollectiongroupresult">GetCollectionGroupResult</a>&lt;T&gt;</code>
+
+</docgen-api>
+
+## Changelog
+
+See [CHANGELOG.md](https://github.com/capawesome-team/capacitor-firebase/blob/main/packages/firestore/CHANGELOG.md).
 
 ## License
 
-See [LICENSE](./LICENSE).
+See [LICENSE](https://github.com/capawesome-team/capacitor-firebase/blob/main/packages/firestore/LICENSE).
 
 [^1]: This project is not affiliated with, endorsed by, sponsored by, or approved by Google LLC or any of their affiliates or subsidiaries.
